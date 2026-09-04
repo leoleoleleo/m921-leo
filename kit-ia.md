@@ -1,4 +1,4 @@
-# Mon kit IA — M291
+'# Mon kit IA — M291
 Dernière mise à jour : (date du jour)
 Règle : quota épuisé → je change d’outil. Je ne paie jamais.
 | Priorité | Outil | Offre 0 € | Quota connu (16.08.2026) | Compte créé ? | Remarque perso |
