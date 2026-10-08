@@ -1,8 +1,14 @@
 # Critique comparative · 3 propositions de design pour Phare
 
-Les trois prototypes (`01-minimal`, `02-editorial`, `03-bold`) sont évalués par rapport au [brief](brief.md), au [persona](persona.md) et au [user flow](user-flow.md). Ils ont été ouverts dans un navigateur à **390 px** (largeur de référence du brief) et à 1280 px.
+Les trois prototypes ([`01-minimal`](propositions/01-minimal), [`02-editorial`](propositions/02-editorial), [`03-bold`](propositions/03-bold)) sont évalués par rapport au [brief](../../brief.md), au [persona](persona.md) et au [user flow](user-flow.md). Ils ont été ouverts dans un navigateur à **390 px** (largeur de référence du brief) et à 1280 px.
 
 À noter dès le départ : les trois versions partagent exactement le même `app.js` et le même `data.js`. Elles ne se distinguent que par le hero, la zone de recherche/filtres et le CSS. La comparaison porte donc surtout sur la direction visuelle et sur la façon dont chacune répond à Maya.
+
+## Les trois propositions à 390 px
+
+| 01 · Minimal | 02 · Éditorial | 03 · Bold |
+|:---:|:---:|:---:|
+| <img src="propositions/01-minimal.png" width="220" alt="Proposition Minimal en mobile"> | <img src="propositions/02-editorial.png" width="220" alt="Proposition Éditorial en mobile"> | <img src="propositions/03-bold.png" width="220" alt="Proposition Bold en mobile"> |
 
 ---
 
