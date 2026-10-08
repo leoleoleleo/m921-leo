@@ -1,24 +1,24 @@
 # Persona
 
-**Prénom et âge :** Maya Morel, 18 ans  
-**Occupation :** apprentie médiamaticienne CFC en 3e année à l'ETML, Lausanne  
-**Où et quand elle utilise l'app :** après son stage, généralement vers 18h, lorsqu'elle doit encore travailler sur un projet avant de rentrer chez elle à Renens  
-**Appareil :** surtout téléphone
+**Prénom et âge :** Benjamin Favre, 20 ans  
+**Occupation :** étudiant en communication visuelle en Suisse romande, joue au foot en club et suit LT Design depuis ses premières affiches de sport  
+**Où et quand il utilise l'app :** quand il reçoit une notification de nouvelle sortie, souvent pendant une pause entre deux cours ou dans le train, pour une consultation de 1 à 2 minutes  
+**Appareil :** smartphone uniquement
 
 ## Objectif
 
-Trouver en moins de 60 secondes un endroit calme, ouvert et suffisamment équipé pour travailler pendant environ 1h30.
+Voir une nouvelle sortie de LT Design dès qu'elle est publiée, en moins de 30 secondes après la notification, puis la garder en favori ou la partager.
 
 ## Phrase typique
 
-> « Je veux juste savoir où je peux me poser maintenant, sans devoir créer un compte ou chercher dans quatre menus. »
+> « Quand je reçois la notif, je veux tomber direct sur le visuel, pas sur une page d'accueil où je dois le chercher. »
 
-## Ce qui la fait fermer l'onglet
+## Ce qui le fait fermer l'app
 
-Elle ferme l'application si elle doit créer un compte pour consulter les informations, si les informations d'ouverture semblent dépassées, si les filtres sont difficiles à trouver ou si la page contient trop de fenêtres et de publicités.
+Il ferme l'app si la notification l'envoie sur l'accueil au lieu de la sortie annoncée, si les images sont floues ou longues à charger, s'il doit créer un compte pour voir un visuel, ou s'il reçoit des notifications pour des choses qui ne sont pas de vraies nouveautés.
 
 ## 3 faits utiles pour le design
 
-1. Elle utilise son smartphone d'une seule main, notamment dans les transports publics.
-2. Elle a un forfait data limité : les informations importantes doivent apparaître rapidement et l'interface doit rester légère.
-3. Elle veut voir directement les informations essentielles d'un lieu : ouvert/fermé, niveau sonore, Wi-Fi et prises.
+1. Il arrive presque toujours dans l'app par une notification, pas en l'ouvrant depuis l'écran d'accueil du téléphone.
+2. Il regarde les affiches dans le détail (typo, textures) : le zoom en plein écran est important pour lui.
+3. Il partage souvent les visuels qu'il aime en story Instagram : le bouton de partage doit être visible sans chercher.
