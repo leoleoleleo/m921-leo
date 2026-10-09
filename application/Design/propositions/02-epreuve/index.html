@@ -24,15 +24,18 @@
 <dialog id="visionneuse" class="visionneuse" aria-labelledby="vis-titre">
   <div class="vis-tete">
     <p id="vis-titre" class="vis-titre">Image</p>
-    <button type="button" class="vis-btn" data-vis="fermer" aria-label="Fermer"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <button type="button" class="vis-fermer" data-vis="fermer"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg><span>Fermer</span></button>
   </div>
-  <div class="vis-scene" tabindex="0" aria-label="Image en plein écran"><img class="vis-img" alt=""></div>
+  <div class="vis-centre">
+    <div class="vis-scene" tabindex="0" aria-label="Image en plein écran"><img class="vis-img" alt=""></div>
+    <!-- Flèches d'image sur les côtés, de forme différente du « retour » de la fiche (test utilisateur, T3) -->
+    <button type="button" class="vis-btn vis-precedent" data-vis="precedent" aria-label="Image précédente"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+    <button type="button" class="vis-btn vis-suivant" data-vis="suivant" aria-label="Image suivante"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  </div>
   <div class="vis-commandes">
-    <button type="button" class="vis-btn" data-vis="precedent" aria-label="Image précédente"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg></button>
     <button type="button" class="vis-btn" data-vis="moins" aria-label="Dézoomer"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 12h12"/></svg></button>
     <span class="vis-zoom" aria-live="polite">100 %</span>
     <button type="button" class="vis-btn" data-vis="plus" aria-label="Zoomer"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 6v12M6 12h12"/></svg></button>
-    <button type="button" class="vis-btn" data-vis="suivant" aria-label="Image suivante"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></button>
   </div>
 </dialog>
 

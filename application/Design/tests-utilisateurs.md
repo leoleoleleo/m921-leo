@@ -3,7 +3,7 @@
 **Prototype testé :** proposition retenue [01 · Nuit](propositions/01-nuit/) (voir la [critique](critique.md))  
 **Référence :** WCAG 2.2, niveau AA  
 **Vérification de l'accessibilité :** 9 octobre 2026  
-**Test utilisateur :** à réaliser avec un camarade (parties 2 à 4)
+**Test utilisateur :** réalisé le 9 octobre 2026 avec Alexis (SM-C3b), sur téléphone (parties 2 à 4)
 
 ---
 
@@ -12,7 +12,7 @@
 ### Méthode
 
 - Prototype ouvert dans Chromium à 390 × 844 px et parcouru écran par écran : notification, fiche, plein écran, fiche avec favori, accueil, favoris vides, page d'erreur.
-- **Contrastes :** calculés sur les couleurs réellement affichées par le navigateur (texte et fond), avec la formule WCAG, la même que le WebAIM Contrast Checker. Au total, 91 textes ont été contrôlés.
+- **Contrastes :** calculés sur les couleurs réellement affichées par le navigateur (texte et fond), avec la formule WCAG, la même que le WebAIM Contrast Checker. Au total, 92 textes ont été contrôlés.
 - **Clavier :** parcours complet du user flow sans souris (Tab, Maj+Tab, Entrée, Espace, flèches, Échap), puis vérification sur captures d'écran.
 - **Focus masqué (2.4.11) :** pour chaque élément qui reçoit le focus, on vérifie en 25 points ce qui est réellement dessiné au-dessus de lui.
 
@@ -26,8 +26,9 @@
 | Filtre actif, message « Ajoutée à tes favoris » | `#0F1115` | `#F2F4F7` | 17,15:1 | ✅ |
 | Plein écran : « Image 3 sur 5 » | `#F2F2F2` | `#000000` | 18,76:1 | ✅ |
 | Plein écran : niveau de zoom « 100 % » | `#D0D0D0` | `#000000` | 13,62:1 | ✅ |
+| Plein écran : bouton « Fermer » (ajouté après le test) | `#000000` | `#F2F2F2` | 18,76:1 | ✅ |
 
-**Résultat : 91 textes contrôlés, 0 échec, contraste minimum de 6,11:1.**
+**Résultat : 92 textes contrôlés, 0 échec, contraste minimum de 6,11:1.**
 
 Le bleu LT Design `#189CD8` porte toujours du texte foncé : du blanc sur ce bleu ne donnerait que 3,09:1 et ne passerait pas l'AA. Cette règle est notée dans le [brief](../../brief.md).
 
@@ -43,6 +44,7 @@ Le bleu LT Design `#189CD8` porte toujours du texte foncé : du blanc sur ce ble
 | Bord des filtres et du bouton Partager | `#2C313B`, puis `#6B7480` | `#0F1115` | 1,45:1, puis 3,99:1 | ⚠️ puis ✅ |
 | Boutons du plein écran | `#8C8C8C` | `#000000` | 6,25:1 | ✅ |
 | Contour de focus en plein écran | `#FFFFFF` | `#000000` | 21:1 | ✅ |
+| Flèches ← → sur l'image, pire cas sur une image claire (ajoutées après le test) | `#F2F2F2` | `#3C3C3A` | 9,88:1 | ✅ |
 
 ### 1.3 Navigation complète au clavier, sans souris (2.1.1, 2.1.2, 2.4.3, 2.4.7)
 
@@ -155,38 +157,69 @@ Vérifier qu'une personne qui ne connaît pas l'app peut aller seule de la notif
 
 ## Partie 3 · Observations
 
-> À remplir pendant le test avec le camarade.
+Notes prises avec la fiche de test pendant le test, recopiées telles quelles (orthographe corrigée).
 
-**Participant :** … **Classe :** … **Date :** … **Appareil :** … **Durée totale :** …
+**Participant :** Alexis  
+**Classe :** SM-C3b  
+**Date :** 9 octobre 2026, de 11 h 32 à 11 h 37 (environ 5 minutes)  
+**Appareil :** téléphone
 
-| Tâche | Réussie ? (oui, avec aide, non) | Temps | Chemin suivi, hésitations, erreurs | Phrase du participant |
-|---|---|---|---|---|
-| T1 Ouvrir la sortie | | | | |
-| T2 Voir l'affiche de près | | | | |
-| T3 Autre image, puis retour | | | | |
-| T4 Garder en favori | | | | |
-| T5 Partager | | | | |
-| T6 Voir les autres sorties | | | | |
-| T7 Filtrer les identités | | | | |
-| T8 Retrouver le favori | | | | |
+| Tâche | Réussie ? | Temps | Chemin suivi, hésitations, erreurs | Phrase du participant |
+|---|:---:|---:|---|---|
+| T1 Ouvrir la sortie | ✅ Oui | 0:05 | A touché la notification. | « C'est instinctif. » |
+| T2 Voir l'affiche de près | ✅ Oui | 0:04 | A touché l'image. | |
+| T3 Autre image, puis retour | ⚠️ Avec aide | 0:08 | A touché, mais n'a pas réussi à revenir à la fiche. | |
+| T4 Garder en favori | ✅ Oui | 0:02 | Rien de noté. | |
+| T5 Partager | ✅ Oui | 0:03 | Rien de noté. | |
+| T6 Voir les autres sorties | Pas noté | 0:04 | A touché le logo « LT Design » pour revenir à l'accueil. | |
+| T7 Filtrer les identités | Pas noté | 0:34 | Rien de noté. C'est la tâche la plus longue : 4 à 17 fois plus que les autres. | |
+| T8 Retrouver le favori | ✅ Oui | 0:02 | Rien de noté. | |
+
+**Bilan :** 5 tâches réussies seul (T1, T2, T4, T5, T8), 1 avec aide (T3), 2 sans résultat noté (T6, T7). Temps total des tâches : 1 min 02 s.
 
 **Réponses aux questions**
 
-1. Facilité (1 à 5) : …
-2. Hésitations ou surprises : …
-3. Ce qu'il a le plus aimé : …
-4. Installerait l'app ? : …
-5. Première chose à changer : …
+1. Facilité : **4/5**. Pourquoi : « C'est bien. »
+2. Hésitations ou surprises : « Les flèches. »
+3. Ce qu'il a le plus aimé : « Le logo. »
+4. Installerait l'app ? : « Oui, j'aime LT Design. »
+5. Première chose à changer : pas de réponse.
+
+**Ce qu'on retient**
+
+- Le début du flow fonctionne : la notification ouvre la fiche et le plein écran s'ouvre en 4 à 5 secondes. Alexis le trouve « instinctif ».
+- Le point faible est la sortie du plein écran (T3), et sa réponse « les flèches » va dans le même sens.
+- Le logo plaît et sert aussi de chemin vers l'accueil.
+
+**Limites de ce test**
+
+- Un seul participant : les résultats donnent des pistes, pas des certitudes.
+- Sur la fiche, les cases « n'a jamais vu le prototype » et « penser à voix haute » ne sont pas cochées. On ne sait donc pas s'il découvrait le prototype, et peu de phrases ont été notées.
+- T6 et T7 n'ont pas de résultat noté. Pour T7, le chrono a peut-être continué pendant la prise de notes.
 
 ---
 
 ## Partie 4 · Actions correctives après le test
 
-> À remplir après le test, à partir des observations. Gravité : **bloquant** (tâche pas terminée), **gênant** (terminée avec une erreur ou plus de 10 secondes d'hésitation), **mineur** (simple remarque).
+Gravité : **bloquant** (tâche pas terminée seul), **gênant** (terminée avec une erreur ou une longue hésitation), **mineur** (simple remarque).
 
-| # | Observation | Tâche | Gravité | Action corrective | Fichier à modifier | Statut |
+| # | Observation | Tâche | Gravité | Action corrective | Fichiers modifiés | Statut |
 |---|---|---|---|---|---|:---:|
-| 1 | | | | | | ⬜ |
-| 2 | | | | | | ⬜ |
-| 3 | | | | | | ⬜ |
-| 4 | | | | | | ⬜ |
+| 1 | N'a pas réussi à revenir du plein écran à la fiche sans aide, et cite « les flèches » comme ce qui l'a fait hésiter. Causes probables : la flèche « image précédente », en bas à gauche, avait exactement la même forme que la flèche de retour de la fiche ; la croix pour fermer n'avait pas de texte ; le bouton retour du téléphone quittait la fiche au lieu de fermer l'image. | T3 | Bloquant | Flèches ← → placées sur les côtés de l'image, avec une autre forme que le retour. Bouton « Fermer » écrit en entier. Le bouton retour du téléphone ferme maintenant le plein écran. | `commun/app.js`, `commun/base.css`, `index.html` des 3 propositions (elles partagent le plein écran) | ✅ corrigé |
+| 2 | En vérifiant la correction n° 1, les nouvelles flèches étaient presque invisibles sur une image claire : une règle CSS écrasait leur fond sombre. | T3 | Gênant | Fond noir à 72 % et bord clair : l'icône est à 9,88:1 dans le pire cas. | `commun/base.css` | ✅ corrigé |
+| 3 | 34 secondes pour filtrer les identités, sans résultat ni chemin noté. | T7 | À confirmer | Refaire T7 avec un 2e camarade, en notant le chemin et le résultat, avant de modifier les filtres. | aucun pour l'instant | ⬜ à faire |
+| 4 | A utilisé le logo pour revenir à l'accueil. | T6 | Positif | Rien à changer : le logo mène déjà aux dernières sorties. | aucun | ✅ |
+| 5 | A aimé le logo et installerait l'app (« Oui, j'aime LT Design »). | Questions | Positif | Garder le logo et la direction Nuit. | aucun | ✅ |
+| 6 | Préparation incomplète : cases non cochées, T6 et T7 sans résultat noté. | Méthode | Mineur | Au prochain test : cocher la préparation, demander de penser à voix haute, noter un résultat pour chaque tâche. | fiche de test | ⬜ prochain test |
+
+### Vérification des corrections
+
+| Vérification | Résultat |
+|---|:---:|
+| Bouton retour du téléphone avec le plein écran ouvert : le plein écran se ferme et la fiche reste affichée | ✅ |
+| Bouton « Fermer », puis retour du téléphone : on revient à la notification, sans étape en trop | ✅ |
+| Flèche → touchée : « Image 3 sur 5 » devient « Image 4 sur 5 » | ✅ |
+| Flèches visibles sur une image claire : icône à 9,88:1 (minimum 3:1) | ✅ |
+| Audit refait sur les 3 propositions : 0 échec de contraste, 16 étapes clavier sur 16, cibles d'au moins 44 px | ✅ |
+
+![Plein écran, avant et après le test](tests/plein-ecran-avant-apres.png)

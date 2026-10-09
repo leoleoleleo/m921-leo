@@ -147,7 +147,8 @@ Nuit est la seule qui respecte le brief, et c'est celle qui sert le mieux la tâ
 
 - [x] Direction choisie : 01 · Nuit
 - [x] Contrastes et navigation au clavier vérifiés ([tests-utilisateurs.md](tests-utilisateurs.md))
-- [ ] Test utilisateur avec un camarade, puis actions correctives
+- [x] Test utilisateur avec un camarade (Alexis, 4/5), sortie du plein écran corrigée ([tests-utilisateurs.md](tests-utilisateurs.md))
+- [ ] Refaire la tâche T7 (filtres) avec un 2e camarade
 - [ ] Catégorie en étiquette
 - [ ] Fiche technique en lignes
 - [ ] Sortie à la une moins haute

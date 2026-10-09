@@ -92,8 +92,19 @@ ol, ul { padding: 0; list-style: none; }
 .visionneuse[open] { display: grid; grid-template-rows: auto 1fr auto; }
 .visionneuse::backdrop { background: #000; }
 .vis-tete, .vis-commandes { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 16px; }
+.vis-commandes { justify-content: center; gap: 16px; }
 .vis-titre { font-weight: 700; }
-.vis-scene { overflow: hidden; display: grid; place-items: center; touch-action: pan-y; }
+/* « Fermer » écrit en toutes lettres : la croix seule n'a pas suffi pendant le test (T3) */
+.vis-fermer {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px 0 14px;
+  border-radius: 24px; border: 2px solid #F2F2F2; background: #F2F2F2; color: #000000; font-weight: 700;
+}
+.vis-fermer:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 3px; }
+.vis-centre { position: relative; display: grid; min-height: 0; overflow: hidden; }
+.vis-btn.vis-precedent, .vis-btn.vis-suivant { position: absolute; top: 50%; transform: translateY(-50%); background: rgb(0 0 0 / .72); border-color: #F2F2F2; }
+.vis-precedent { left: 12px; }
+.vis-suivant { right: 12px; }
+.vis-scene { overflow: hidden; display: grid; place-items: center; touch-action: pan-y; min-height: 0; }
 .est-zoome .vis-scene { overflow: auto; place-items: start; touch-action: auto; }
 .vis-img { width: calc(100% * var(--zoom, 1)); max-width: none; height: auto; max-height: none; }
 .visionneuse:not(.est-zoome) .vis-img { max-height: 100%; width: auto; max-width: 100%; }

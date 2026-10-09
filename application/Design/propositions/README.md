@@ -25,6 +25,8 @@ Trois directions visuelles générées avec l'IA à partir du [brief](../../../b
 
 Les 3 propositions ont la même structure HTML et le même JavaScript : elles ne diffèrent que par leur CSS. La comparaison de la [critique](../critique.md) porte donc sur la direction visuelle.
 
+Les images PNG montrent les propositions telles qu'elles ont été générées. Les prototypes ont ensuite été corrigés : bordures de Nuit après la vérification d'accessibilité, puis plein écran des 3 propositions après le test utilisateur (voir [tests-utilisateurs.md](../tests-utilisateurs.md)).
+
 ## Données et polices
 
 - Les sorties, les textes et les visuels (affiches abstraites générées en SVG) sont **inventés** pour le prototype. Ils seront remplacés par les vrais projets de LT Design.

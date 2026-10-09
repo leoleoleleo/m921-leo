@@ -286,7 +286,11 @@
     dlg.addEventListener("close", () => {
       document.body.classList.remove("visionneuse-ouverte");
       if (declencheur) declencheur.focus();
+      // Fermé avec le bouton ou Échap : on retire l'étape ajoutée à l'historique
+      if (history.state && history.state.visionneuse) history.back();
     });
+    // Le bouton retour du téléphone ferme le plein écran au lieu de quitter la fiche (test utilisateur, T3)
+    window.addEventListener("popstate", () => { if (dlg.open) dlg.close(); });
 
     return {
       ouvrir(s, i, bouton) {
@@ -294,6 +298,7 @@
         majImage();
         document.body.classList.add("visionneuse-ouverte");
         dlg.showModal();
+        history.pushState({ visionneuse: true }, "");
         $('[data-vis="fermer"]', dlg).focus();
       }
     };
