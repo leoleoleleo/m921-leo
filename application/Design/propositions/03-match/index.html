@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LT-design app</title>
+<meta name="description" content="Prototype LT-design app, proposition Match">
+<meta name="theme-color" content="#189CD8">
+<link rel="stylesheet" href="../commun/base.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="lien-evitement" href="#contenu">Aller au contenu</a>
+<div class="app">
+  <header class="barre">
+    <a class="logo" href="#/" aria-label="LT Design, dernières sorties"><span class="logo-lt">LT</span><span class="logo-design">Design</span></a>
+    <a class="lien-favoris" href="#/favoris"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.4-4.5-9.2-9C1.6 8 3.6 4.6 7 4.6c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.4 3.4 4.2 6.7-1.8 4.5-9.2 9-9.2 9z"/></svg><span>Favoris</span></a>
+  </header>
+  <main id="contenu" class="contenu" tabindex="-1"></main>
+</div>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<dialog id="visionneuse" class="visionneuse" aria-labelledby="vis-titre">
+  <div class="vis-tete">
+    <p id="vis-titre" class="vis-titre">Image</p>
+    <button type="button" class="vis-btn" data-vis="fermer" aria-label="Fermer"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="vis-scene" tabindex="0" aria-label="Image en plein écran"><img class="vis-img" alt=""></div>
+  <div class="vis-commandes">
+    <button type="button" class="vis-btn" data-vis="precedent" aria-label="Image précédente"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button type="button" class="vis-btn" data-vis="moins" aria-label="Dézoomer"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 12h12"/></svg></button>
+    <span class="vis-zoom" aria-live="polite">100 %</span>
+    <button type="button" class="vis-btn" data-vis="plus" aria-label="Zoomer"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 6v12M6 12h12"/></svg></button>
+    <button type="button" class="vis-btn" data-vis="suivant" aria-label="Image suivante"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+</dialog>
+
+<noscript><p>Ce prototype a besoin de JavaScript pour afficher les sorties.</p></noscript>
+<script src="../commun/data.js"></script>
+<script src="../commun/app.js"></script>
+</body>
+</html>

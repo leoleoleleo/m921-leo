@@ -1,0 +1,114 @@
+/* Base commune : remise à zéro, accessibilité, comportements partagés.
+   L'apparence de chaque proposition est dans son propre style.css. Mobile first. */
+
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  -webkit-text-size-adjust: 100%;
+  /* La barre du haut et la barre d'actions fixe ne doivent jamais cacher l'élément qui a le focus (WCAG 2.4.11) */
+  scroll-padding-top: var(--hauteur-barre, 64px);
+  scroll-padding-bottom: calc(var(--hauteur-actions, 0px) + 16px);
+}
+body { margin: 0; min-height: 100vh; }
+img { display: block; max-width: 100%; height: auto; }
+button { font: inherit; color: inherit; cursor: pointer; }
+a { color: inherit; }
+h1, h2, p, dl, dd, ol, ul { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.app { max-width: 480px; margin-inline: auto; min-height: 100vh; }
+
+.lien-evitement {
+  position: absolute; left: 8px; top: -200px; z-index: 100;
+  padding: 12px 16px; font-weight: 700;
+}
+.lien-evitement:focus { top: 8px; }
+
+.contenu:focus { outline: none; }
+[tabindex="-1"]:focus { outline: none; }
+
+.icone { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+/* Barre d'actions fixée en bas : dans la zone du pouce */
+.fiche { padding-bottom: calc(var(--hauteur-actions) + 24px); }
+.actions {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+  max-width: 480px; margin-inline: auto;
+  display: flex; gap: 12px;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+}
+.btn-favori { flex: 1; }
+.btn-partager { flex: none; width: 52px; padding: 0; }
+
+.bouton {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 20px; text-decoration: none; border: 2px solid transparent;
+}
+.btn-favori.est-favori .icone { fill: currentColor; }
+
+.filtres { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.filtres::-webkit-scrollbar { display: none; }
+.filtre { flex: none; min-height: 44px; }
+
+.sortie-lien { display: block; text-decoration: none; position: relative; }
+.sortie-image { display: block; overflow: hidden; }
+.sortie-image img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.sortie-titre, .sortie-meta { display: block; }
+.sortie-num, .sortie-jour { display: none; }
+.sortie-fav { position: absolute; display: flex; }
+.sortie-fav .icone { width: 20px; height: 20px; fill: currentColor; }
+
+.badge { display: inline-block; transition: opacity .4s, transform .4s; }
+.badge--sortie { opacity: 0; transform: scale(.8); }
+
+.visuel-btn, .galerie-btn { display: block; width: 100%; padding: 0; border: 0; background: none; }
+.visuel-btn img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+.galerie-btn img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+
+.galerie-liste { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 4px; }
+.galerie-liste li { flex: 0 0 34%; scroll-snap-align: start; }
+
+.fiche-infos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* Toast d'annonce (role="status") */
+.toast {
+  position: fixed; left: 50%; bottom: calc(var(--hauteur-actions, 0px) + 20px); z-index: 40;
+  transform: translate(-50%, 16px); opacity: 0; pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  padding: 12px 18px; max-width: calc(100% - 32px);
+}
+.toast.est-visible { opacity: 1; transform: translate(-50%, 0); }
+.toast:empty { padding: 0; }
+
+/* Visionneuse plein écran */
+.visionneuse {
+  width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: 0; border: 0;
+  background: #000; color: #F2F2F2;
+}
+.visionneuse[open] { display: grid; grid-template-rows: auto 1fr auto; }
+.visionneuse::backdrop { background: #000; }
+.vis-tete, .vis-commandes { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 16px; }
+.vis-titre { font-weight: 700; }
+.vis-scene { overflow: hidden; display: grid; place-items: center; touch-action: pan-y; }
+.est-zoome .vis-scene { overflow: auto; place-items: start; touch-action: auto; }
+.vis-img { width: calc(100% * var(--zoom, 1)); max-width: none; height: auto; max-height: none; }
+.visionneuse:not(.est-zoome) .vis-img { max-height: 100%; width: auto; max-width: 100%; }
+.vis-btn {
+  display: inline-grid; place-items: center; width: 48px; height: 48px; padding: 0;
+  border-radius: 50%; border: 2px solid #8C8C8C; background: transparent; color: #F2F2F2;
+}
+.vis-btn:disabled { opacity: .45; cursor: default; }
+.vis-zoom { min-width: 4.5em; text-align: center; color: #D0D0D0; }
+.vis-btn:focus-visible, .visionneuse .vis-scene:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 2px; }
+.visionneuse-ouverte { overflow: hidden; }
+
+.vide, .erreur { display: grid; gap: 12px; }
+.erreur-actions { display: grid; gap: 12px; margin-top: 8px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

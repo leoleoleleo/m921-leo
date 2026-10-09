@@ -1,186 +1,155 @@
-# Critique comparative · 3 propositions de design pour Phare
+# Critique comparative · 3 propositions de design pour LT-design app
 
-Les trois prototypes ([`01-minimal`](propositions/01-minimal), [`02-editorial`](propositions/02-editorial), [`03-bold`](propositions/03-bold)) sont évalués par rapport au [brief](../../brief.md), au [persona](persona.md) et au [user flow](user-flow.md). Ils ont été ouverts dans un navigateur à **390 px** (largeur de référence du brief) et à 1280 px.
+Les trois propositions générées avec l'IA ([01 · Nuit](propositions/01-nuit/), [02 · Épreuve](propositions/02-epreuve/), [03 · Match](propositions/03-match/)) sont évaluées par rapport au [brief](../../brief.md), au [persona](persona.md) et au [user flow](user-flow.md). Chaque prototype a été ouvert dans Chromium à **390 × 844 px** (largeur de référence du brief), parcouru du début à la fin du flow, puis mesuré : place du visuel, longueur des pages, poids des polices, contrastes et navigation au clavier.
 
-À noter dès le départ : les trois versions partagent exactement le même `app.js` et le même `data.js`. Elles ne se distinguent que par le hero, la zone de recherche/filtres et le CSS. La comparaison porte donc surtout sur la direction visuelle et sur la façon dont chacune répond à Maya.
+Les trois propositions partagent la même structure HTML et le même JavaScript : seules les feuilles de style changent. Leurs résultats d'accessibilité sont donc identiques (voir [tests-utilisateurs.md](tests-utilisateurs.md)), et la comparaison porte sur la direction visuelle et sur la façon dont chacune répond à Benjamin.
 
-## Les trois propositions à 390 px
+## Les trois propositions
 
-| 01 · Minimal | 02 · Éditorial | 03 · Bold |
-|:---:|:---:|:---:|
-| <img src="propositions/01-minimal.png" width="220" alt="Proposition Minimal en mobile"> | <img src="propositions/02-editorial.png" width="220" alt="Proposition Éditorial en mobile"> | <img src="propositions/03-bold.png" width="220" alt="Proposition Bold en mobile"> |
+![Proposition 01 · Nuit](propositions/01-nuit.png)
+![Proposition 02 · Épreuve](propositions/02-epreuve.png)
+![Proposition 03 · Match](propositions/03-match.png)
 
 ---
 
 ## Verdict en bref
 
-| | 01 · Minimal | 02 · Éditorial | 03 · Bold |
+| | 01 · Nuit | 02 · Épreuve | 03 · Match |
 |---|:---:|:---:|:---:|
-| Respect du brief | 2/5 | 3/5 | 3/5 |
-| Réponse au persona (rapide, une main, infos visibles) | 3/5 | 3/5 | 2/5 |
-| Hiérarchie et lisibilité | 3/5 | 4/5 | 3/5 |
-| Identité visuelle / ambiance | 2/5 | 4/5 | 4/5 |
-| Accessibilité (WCAG AA, clavier) | 3/5 | 2/5 | 3/5 |
-| Mobile 390 px et qualité technique | 3/5 | 3/5 | 1/5 |
-| **Total** | **16/30** | **19/30** | **16/30** |
+| Respect du brief (ambiance, bleu en accent) | 5/5 | 2/5 | 2/5 |
+| Réponse au persona (visuel d'abord, zoom, partage) | 4/5 | 3/5 | 3/5 |
+| Hiérarchie et lisibilité | 4/5 | 4/5 | 2/5 |
+| Mise en valeur des visuels de LT Design | 5/5 | 4/5 | 2/5 |
+| Caractère et identité | 3/5 | 5/5 | 4/5 |
+| Accessibilité et légèreté (mesurées) | 5/5 | 4/5 | 4/5 |
+| **Total** | **26/30** | **22/30** | **17/30** |
 
-**Proposition retenue : 02 · Éditorial**, à condition de corriger ses faux filtres et la couleur du statut. C'est la seule qui montre les quatre critères du user flow (ouvert, calme, Wi-Fi, prises) dès l'écran d'accueil, et c'est celle dont l'ambiance « guide local » colle le mieux au projet. Elle peut emprunter l'indicateur de mise à jour de Minimal et les vrais boutons de filtre de Bold (voir [Recommandation](#recommandation)).
+**Proposition retenue : 01 · Nuit.** C'est la seule qui respecte l'ambiance du brief, celle qui montre les visuels le plus grand et la plus légère. Son point faible, un caractère discret, se corrige en reprenant deux idées d'Épreuve (voir la [recommandation](#proposition-retenue--01--nuit)).
 
 ---
 
-## Comparatif factuel (mesuré à 390 × 844 px)
+## Comparatif mesuré (390 × 844 px)
 
-| Point | 01 · Minimal | 02 · Éditorial | 03 · Bold |
+| Point | 01 · Nuit | 02 · Épreuve | 03 · Match |
 |---|---|---|---|
-| Haut de la 1re carte | 511 px | **447 px** | 478 px |
-| Hauteur totale de la page | 1691 px | 1628 px | 1710 px |
-| Débordement horizontal | non | non | **oui (449 px pour 390)** |
-| Recherche | oui | non | oui |
-| Filtres | aucun | 4 critères, mais en texte (☐) | 3 boutons, sans Wi-Fi |
-| Bouton principal « Filtrer » (brief) | absent | absent (« Explorer ↓ ») | absent |
-| Éléments atteignables au clavier | 1 (recherche) | 1 (« Explorer », sans action) | 4 (recherche + 3 boutons, sans action) |
-| Couleur du statut | noir gras | vert, **même pour « Ferme à 20:00 »** | dépend de la position de la carte |
-| Info « mis à jour il y a… » | **oui** | non | non |
-| Police externe | non | oui (Google Fonts, 2 familles) | non |
-| Bug CSS visible | titre à 32 px (classe `.hero` absente du HTML) | logo non stylé (`.brand` au lieu de `.logo`) | lettres du titre qui se chevauchent, contrôles coupés |
+| Part du premier écran de la fiche occupée par le visuel | **62 %** | 55 % | 62 %, mais le bas est coupé |
+| Titre de la fiche visible sans défiler | oui, 1 ligne | oui, 1 ligne | oui, 2 lignes |
+| Hauteur totale de la fiche | **1325 px** | 1895 px | 1390 px |
+| Hauteur totale de l'accueil | 1871 px | 1722 px | **1482 px** |
+| Largeur des vignettes dans la liste | **173 px** | 112 px | 60 px |
+| Titres sur 2 lignes ou plus dans la liste (sur 6) | 3 | **1** | 4 |
+| Catégorie repérable d'un coup d'œil | texte gris | **étiquette de couleur + nom** | texte gris |
+| Polices chargées | **263 Ko (2 fichiers)** | 338 Ko (2 fichiers) | 398 Ko (3 fichiers) |
+| Contraste de texte le plus faible | **6,11:1** | 5,15:1 | 5,64:1 |
+| Débordement horizontal à 390 px | non | non | non |
+| Erreurs JavaScript | 0 | 0 | 0 |
 
-### Contrastes (couleurs définies dans les CSS)
-
-| Paire | Ratio | AA texte normal (4,5:1) |
-|---|---:|:---:|
-| Minimal · texte `#111` sur `#f7f7f4` | 17,6:1 | ✅ |
-| Minimal · petit texte `#666` sur `#f7f7f4` | 5,4:1 | ✅ |
-| Éditorial · texte `#171717` sur `#eee9df` | 14,8:1 | ✅ |
-| Éditorial · bouton blanc sur `#d53b2f` | 4,7:1 | ✅ (juste) |
-| Éditorial · statut vert `#237044` sur `#eee9df` | 5,0:1 | ✅ |
-| Éditorial · petit texte `#666` sur `#eee9df` | 4,8:1 | ✅ (juste) |
-| Bold · texte `#102d19` sur `#dff0df` | 12,5:1 | ✅ |
-| Bold · carte jaune, texte `#102d19` sur `#e8a72f` | 7,1:1 | ✅ |
-| Bold · carte corail, texte `#102d19` sur `#f25b4b` | 4,5:1 | ✅ (à la limite) |
-| Bold · placeholder gris par défaut sur `#dff0df` | ≈ 3,9:1 | ❌ |
-
-Les palettes passent globalement l'AA. Le problème d'accessibilité n'est pas la couleur mais la **taille** : les infos essentielles (calme, Wi-Fi, prises) sont en **10 px** dans les trois versions.
+Les trois propositions passent les mêmes contrôles d'accessibilité : tous les textes au-dessus de 4,5:1, le parcours complet faisable au clavier (16 étapes sur 16) et toutes les cibles tactiles d'au moins 44 px.
 
 ---
 
-## 01 · Minimal
+## 01 · Nuit
 
-**Intention :** style suisse épuré, fond cassé, filets noirs, gros titre « Trouve ton *spot.* ».
+**Intention :** une galerie la nuit. L'interface s'efface, seuls les visuels ont de la couleur. Le bleu LT Design ne sert qu'au badge « Nouveau », au focus clavier et au bouton « Ajouter aux favoris ».
 
 **Points forts**
-- La plus légère : pas de police externe, pas de couleur superflue. Bon point pour le forfait data limité de Maya.
-- La seule à afficher **« Mis à jour il y a 2 min »**, qui répond directement à la crainte du persona (« informations d'ouverture dépassées »).
-- Contrastes très confortables partout.
-- Le pied de page « Pas de compte. Pas de pub. » reprend mot pour mot les attentes du persona (présent dans les trois versions).
+- La seule qui suit le brief à la lettre. Comme le bleu est rare, le badge « Nouveau » et le bouton favori sont les premières choses que l'œil trouve.
+- Les affiches de LT Design sont les seules couleurs à l'écran : rien ne leur fait concurrence, comme sur le mur d'une galerie.
+- Grille à 2 colonnes sur l'accueil, avec les plus grandes vignettes des trois (173 px). Benjamin reconnaît une affiche à son visuel avant même de lire le titre.
+- La fiche la plus courte (1325 px). Le visuel prend 62 % du premier écran et le titre reste visible juste en dessous.
+- Le meilleur contraste (6,11:1 au minimum) et les polices les plus légères (263 Ko).
 
 **Points faibles**
-- **Aucun filtre.** Le brief demande « Filtrer » comme bouton principal de l'écran 1 et le persona ferme l'onglet « si les filtres sont difficiles à trouver ». C'est l'écart le plus grave des trois propositions.
-- Le grand titre prévu n'apparaît pas : le CSS cible `.hero h1`, mais aucun élément `.hero` n'existe dans le HTML. Le titre tombe à 32 px et la proposition perd son principal effet visuel.
-- « 30 SPOTS » alors que seulement 4 lieux sont affichés.
-- En desktop, la grille à 3 colonnes reçoit 5 éléments : la distance se retrouve à gauche, le nom à droite, le statut en dessous. L'ordre de lecture est cassé.
-- L'icône de recherche « ⌕ » est minuscule et mal alignée avec le champ.
+- La moins originale : un fond presque noir avec un seul accent est une formule fréquente. Le caractère vient des visuels, pas de l'interface. Sans les vrais projets de LT Design, l'app paraît vide.
+- Les catégories sont écrites en gris, sans forme : on ne distingue pas d'un coup d'œil une affiche d'une identité.
+- 3 titres sur 6 passent sur 2 lignes dans la grille à 2 colonnes.
+- Les bordures des filtres et du bouton Partager étaient trop faibles au départ (1,45:1). Elles ont été corrigées à 3,99:1 (voir [tests-utilisateurs.md](tests-utilisateurs.md)).
 
-**Ressenti :** sobre mais impersonnel. Sans le grand titre, elle ressemble plus à une maquette fil de fer qu'à une direction artistique.
+**Ressenti :** calme et efficace. Elle fait exactement ce que Benjamin attend en arrivant de la notification : voir l'affiche en grand, tout de suite.
 
 ---
 
-## 02 · Éditorial
+## 02 · Épreuve
 
-**Intention :** magazine / guide local, fond crème, titre en grotesque serrée + italique serif (« Où travailler *ce soir ?* »), accent rouge.
+**Intention :** l'app comme une épreuve d'imprimerie. Papier clair, repères de coupe autour des visuels, sorties numérotées dans l'ordre de parution et une encre par catégorie.
 
 **Points forts**
-- **La seule qui affiche les 4 critères du user flow** (Ouvert, Calme, Wi-Fi, Prises) dès l'accueil, sur une ligne lisible.
-- Première carte la plus haute de l'écran (447 px) : Maya voit un lieu plus vite qu'ailleurs.
-- Statut « OUVERT » en vert : on le repère d'un coup d'œil.
-- La direction la plus aboutie et la plus cohérente : la question du titre parle directement à Maya à 18 h, le ton « guide local » rassure sur la qualité de la sélection.
-- Les étiquettes beiges (fond `#ddd5c8`) sont plus lisibles que les cadres fins des deux autres versions.
+- La plus ancrée dans le métier de LT Design : repères de coupe, numéros d'édition et fiche technique (format, technique) présentée comme un bon à tirer. Elle parle directement à un fan de graphisme.
+- Les catégories se repèrent immédiatement : une encre par catégorie (cyan pour les affiches, magenta pour les identités, jaune pour le sport design), toujours avec son nom écrit.
+- La fiche technique en lignes est la plus facile à lire des trois.
+- La galerie en grille montre de grandes vignettes, sans défilement horizontal.
 
 **Points faibles**
-- **Les filtres sont faux** : ce sont des caractères « ☐ » dans du texte, pas des cases à cocher. Impossible de les toucher, de les atteindre au clavier, et un lecteur d'écran les lit comme du texte. Ils promettent une action qui n'existe pas.
-- **« FERME À 20:00 » est affiché dans le même vert que « OUVERT ».** À 18:42, le Café des Arts est encore ouvert mais ferme dans 1 h 18, soit moins que les 1 h 30 dont Maya a besoin. Le vert envoie le mauvais signal. C'est exactement ce que le brief interdit (« pas de statuts ouverts sans information suffisamment claire »).
-- Le bouton « EXPLORER ↓ » est le seul élément cliquable de la page et il ne fait rien. Il est aussi collé au texte (aucune marge).
-- Le logo n'est pas stylé : le CSS définit `.brand`, le HTML utilise `.logo`.
-- Google Fonts (DM Sans + Playfair Display) : deux requêtes externes et un chargement plus lourd, en contradiction avec le forfait data limité. Sans connexion, le titre perd son contraste typographique.
-- Espacement des filtres fait avec des espaces idéographiques (`　`) au lieu de `gap` en CSS.
+- Elle va contre le brief : fond clair au lieu de sombre, et trois encres en plus du bleu, qui n'est plus le seul accent.
+- **Hiérarchie inversée sur la fiche** : « Sortie n° 24 » en 56 px est plus visible que le nom du projet. Benjamin cherche « Affiche FC Sion 2026 », pas un numéro.
+- Le visuel prend moins de place (55 % du premier écran) à cause du cadre de papier et des repères.
+- La fiche la plus longue : 1895 px, soit 43 % de plus que Nuit, à cause de la galerie en grille.
+- Les repères de coupe mesurent 10 px. Sur un téléphone, ils deviennent un détail que presque personne ne remarque.
+- Adventor est une police large qui prend de la place, et les polices pèsent 338 Ko.
 
-**Ressenti :** la proposition qui a le plus de caractère tout en restant calme, ce qui correspond au sujet (trouver un lieu *calme*). Les défauts sont réels mais tous corrigeables sans changer la direction.
+**Ressenti :** la plus personnelle et la plus juste pour un graphiste, mais elle met en avant le cadre plutôt que l'affiche.
 
 ---
 
-## 03 · Bold
+## 03 · Match
 
-**Intention :** affiche, titre impératif « RESTE. *TRAVAILLE.* AVANCE. », cartes pleines en vert foncé, jaune et corail, filets épais de 3 px.
+**Intention :** le langage du sport design. Bleu nuit de stade, titres condensés en italique, sorties listées comme un calendrier de matchs, visuels coupés en diagonale.
 
 **Points forts**
-- La plus mémorable et la plus énergique. Le slogan est fort et la phrase « Le bon endroit est peut-être à 600 mètres » est la meilleure accroche des trois.
-- **Vrais éléments interactifs** : un champ de recherche et trois `<button>` atteignables au clavier, avec des zones de toucher confortables (≈ 49 px de haut).
-- Les cartes pleines séparent bien les lieux et se lisent comme des blocs.
+- La plus énergique. Elle parle tout de suite du sport design, une des spécialités de LT Design.
+- L'accueil le plus compact (1482 px) : la liste en calendrier, avec la date en grand, se parcourt très vite.
+- La coupe en diagonale est un geste fort et facile à retenir.
 
 **Points faibles**
-- **Débordement horizontal à 390 px** : la barre de contrôles mesure 449 px, le bouton « PRISES » est coupé et la page glisse sur le côté. Sur la largeur de référence du brief, c'est bloquant.
-- **Couleurs des cartes attribuées par position** (`nth-child(2)` et `(3)`) et non par signification. La Muette, ouverte, apparaît en corail/rouge, ce qui se lit comme « fermé » ou « alerte ». Avec 30 lieux, seules les cartes 2 et 3 seraient colorées.
-- Le filtre **Wi-Fi manque** alors que c'est un des 4 critères du user flow.
-- Le hero prend beaucoup de place : en desktop, la première carte est sous la ligne de flottaison (843 px pour un écran de 800 px).
-- `letter-spacing: -.1em` fait se chevaucher les lettres de « TRAVAILLE. ». `font-weight: 1000` n'existe pas en Arial (rendu en 700).
-- Le ton impératif (« RESTE. TRAVAILLE. ») est plus « motivation sportive » que « lieu calme ». Il crée une tension avec le besoin principal de Maya.
+- **La coupe en diagonale cache le bas de chaque visuel.** Sur l'affiche FC Sion, la signature « LT DESIGN » disparaît, sur la fiche comme sur l'accueil. Pour une app qui montre le travail d'un graphiste, couper ses affiches est le défaut le plus grave des trois propositions.
+- Elle impose l'univers du sport à toutes les sorties, alors que la moitié des projets n'en sont pas (Brume Café, Atelier Vire, Les Échos).
+- Les majuscules condensées en italique se lisent moins bien : 4 titres sur 6 passent sur 2 lignes dans la liste, et le titre de la fiche aussi.
+- Les vignettes de la liste ne font que 60 px : on reconnaît à peine les visuels, alors que c'est ce que Benjamin vient voir.
+- Le bleu LT recouvre l'en-tête et la barre d'actions : ce n'est plus un accent, contrairement au brief.
+- Les filtres inclinés sont un effet de style qui n'apporte aucune information.
+- Les polices les plus lourdes : 3 fichiers, 398 Ko.
 
-**Ressenti :** visuellement la plus forte, mais elle sert l'affiche plus que l'utilisatrice. Elle serait plus adaptée à une campagne de lancement qu'à l'outil du quotidien.
-
----
-
-## Problèmes communs aux trois propositions
-
-Ces points sont à corriger quelle que soit la version retenue.
-
-1. **Seul l'écran 1 existe.** Le brief demande 4 écrans (liste, recherche/filtrage, fiche détaillée, itinéraire). Les écrans 2, 3 et 4 manquent, ainsi que la variante d'échec « aucun résultat ».
-2. **« Voir la fiche → » est une `<div>`**, pas un lien : impossible de cliquer, de taper ou d'y accéder au clavier. Le parcours s'arrête à l'écran 1.
-3. **Statut ambigu pour le Café des Arts** : « FERME À 20:00 » en gros, puis « ferme à 20:00 » en petit. L'information est dupliquée et ne dit pas si le lieu est ouvert. Proposition : afficher **« Ouvert · encore 1 h 18 »**, ce qui permet à Maya de comparer directement avec ses 1 h 30.
-4. **Les infos essentielles sont les plus petites de la page** (étiquettes en 10 px, statut en 11 à 15 px), alors que le persona veut voir ouvert/fermé, son, Wi-Fi et prises en priorité. La hiérarchie est inversée : le nom du lieu est énorme, les critères de décision minuscules.
-5. **Prises absentes affichées par un simple tiret** (La Muette). Peu clair visuellement et muet pour un lecteur d'écran : écrire « Sans prises ».
-6. **Champs sans `<label>`** : seul le placeholder décrit la recherche, ce qui ne suffit pas pour WCAG.
-7. **Boutons de filtre sans état** : pas de `aria-pressed` ni de style actif/inactif.
-8. **« 01Lausanne »** collé : le bloc `.top` n'est stylé dans aucune version.
-9. **Heure « 18:42 » écrite en dur** dans le header.
-10. **Pas de variables CSS** alors que le brief les exige, et CSS écrit desktop d'abord (`max-width`) au lieu de **mobile first** (`min-width`).
-11. **Usage à une main** : la recherche et les filtres sont en haut de l'écran, loin du pouce. Un bouton « Filtrer » fixé en bas de l'écran répondrait mieux au fait n° 1 du persona.
-12. **Aucun style de focus personnalisé** : la navigation clavier repose sur le contour par défaut du navigateur.
+**Ressenti :** parfaite pour une affiche de match, mais trop marquée pour présenter tout le portfolio.
 
 ---
 
-## Recommandation
+## Points communs aux trois propositions
 
-Partir de **02 · Éditorial** et lui ajouter :
+**Ce qui marche partout**
+- La notification ouvre directement la fiche de la sortie, pas l'accueil (tâche n° 1 du pitch).
+- Le badge « Nouveau » reste visible au retour sur l'accueil, puis disparaît : la sortie est marquée comme vue.
+- Aucun compte n'est demandé, il n'y a pas de publicité, et toutes les zones de toucher font au moins 44 px.
+- Le plein écran se pilote aussi avec des boutons (précédent, suivant, zoom) : le glissement n'est pas obligatoire.
 
-| À garder | Vient de |
-|---|---|
-| Titre question, fond crème, statut en couleur, étiquettes à fond plein | Éditorial |
-| « Mis à jour il y a X min » sous la liste | Minimal |
-| Champ de recherche | Minimal / Bold |
-| Vrais boutons de filtre (avec `aria-pressed`), zones de toucher ≥ 44 px | Bold |
-| Accroche « Le bon endroit est peut-être à 600 mètres » (en sous-titre) | Bold |
-
-Et changer :
-
-- statut en **3 états de couleur** : ouvert (vert), ferme bientôt / moins de 1 h 30 (orange), fermé (rouge ou gris), toujours accompagnés d'un texte, jamais la couleur seule ;
-- étiquettes son / Wi-Fi / prises en **14 px minimum**, avec une icône ;
-- une seule police externe au maximum (ou police système pour le texte courant et serif uniquement pour le titre) ;
-- carte entière cliquable (`<a>` qui enveloppe la carte) vers la fiche.
+**Ce qui reste à améliorer partout**
+1. **Une seule sortie visible sur le premier écran de l'accueil** : la sortie à la une est très haute. Il faudrait la réduire pour qu'on voie le début de la suivante.
+2. **Les visuels sont des affiches SVG inventées.** Les vrais projets (photos, mockups) seront plus lourds : il faudra prévoir du WebP et un chargement différé, comme le demande le brief.
+3. **Le partage passe par le menu natif du téléphone** (`navigator.share`) ; sur ordinateur, le lien est copié. Une app web ne peut pas publier directement une story Instagram.
+4. **La notification est simulée par une page.** Une vraie notification demandera un service worker et l'autorisation de l'utilisateur.
+5. **Pas encore testé avec un lecteur d'écran** (VoiceOver ou TalkBack).
 
 ---
+
+## Proposition retenue : 01 · Nuit
+
+Nuit est la seule qui respecte le brief, et c'est celle qui sert le mieux la tâche principale de Benjamin : voir l'affiche en grand dès la notification. On garde sa base et on y ajoute deux idées d'Épreuve.
+
+| Élément | Décision | Vient de |
+|---|---|---|
+| Fond sombre, bleu LT seulement en accent, grille à 2 colonnes | à garder | Nuit |
+| Catégorie dans une étiquette à contour gris (pas d'encre de couleur, pour garder le bleu comme seul accent) | à ajouter | Épreuve |
+| Fiche technique en lignes (catégorie, date, format, technique) | à ajouter | Épreuve |
+| Sortie à la une moins haute, pour voir le début de la suivante | à ajouter | Match (accueil compact) |
+| Numéro de sortie géant | à ne pas reprendre | Épreuve |
+| Coupe en diagonale des visuels | à ne pas reprendre | Match |
 
 ## Checklist avant de passer au code
 
-- [ ] Choix de la direction validé (Éditorial)
-- [ ] Palette passée en variables CSS (`--fond`, `--texte`, `--accent`, `--ok`, `--attention`, `--ferme`)
-- [ ] CSS réécrit en mobile first (`min-width`)
-- [ ] Vrais `<input type="checkbox">` ou `<button aria-pressed>` pour les filtres
-- [ ] `<label>` sur la recherche
-- [ ] Bouton principal « Filtrer » présent (brief)
-- [ ] Statut avec temps restant (« encore 1 h 18 »)
-- [ ] Carte cliquable vers la fiche
-- [ ] Écran 2 · Recherche et filtrage
-- [ ] Écran 3 · Fiche détaillée
-- [ ] Écran 4 · Itinéraire
-- [ ] État « aucun résultat » avec bouton pour retirer des filtres
-- [ ] Test à 390 px sans débordement horizontal
-- [ ] Test complet au clavier (Tab, Entrée, Espace) avec focus visible
+- [x] Direction choisie : 01 · Nuit
+- [x] Contrastes et navigation au clavier vérifiés ([tests-utilisateurs.md](tests-utilisateurs.md))
+- [ ] Test utilisateur avec un camarade, puis actions correctives
+- [ ] Catégorie en étiquette
+- [ ] Fiche technique en lignes
+- [ ] Sortie à la une moins haute
+- [ ] Remplacer les visuels inventés par les vrais projets de LT Design (WebP, chargement différé)
+- [ ] Test avec un lecteur d'écran (VoiceOver ou TalkBack)

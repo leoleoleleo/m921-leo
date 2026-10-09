@@ -1,0 +1,123 @@
+/* Proposition 02 · Épreuve
+   L'app comme une épreuve d'imprimerie : papier clair, repères de coupe autour de chaque visuel,
+   sorties numérotées dans l'ordre de parution, une encre par catégorie (toujours avec son nom). */
+
+@font-face { font-family: "Adventor"; src: url("../commun/fonts/texgyreadventor-regular.otf") format("opentype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Adventor"; src: url("../commun/fonts/texgyreadventor-bold.otf") format("opentype"); font-weight: 700; font-display: swap; }
+
+:root {
+  --papier: #EDEFF1;
+  --feuille: #FFFFFF;
+  --encre: #14161A;
+  --encre-2: #4B5361;
+  --trait: #C9CED6;
+  --cyan: #189CD8;
+  --cyan-texte: #0B6A99;
+  --magenta: #C2185B;
+  --jaune: #F2C200;
+  --police: "Adventor", "Century Gothic", "Avenir Next", Arial, sans-serif;
+  --hauteur-barre: 60px;
+  --hauteur-actions: 76px;
+  --repere: 14px;
+  color-scheme: light;
+}
+
+body { background: var(--papier); color: var(--encre); font: 400 1rem/1.55 var(--police); }
+:focus-visible { outline: 3px solid var(--cyan-texte); outline-offset: 3px; }
+.lien-evitement { background: var(--encre); color: var(--feuille); }
+
+/* Repères de coupe : 8 petits traits dans les coins, à l'extérieur du visuel */
+.sortie-image, .fiche-visuel {
+  padding: var(--repere);
+  background:
+    linear-gradient(var(--encre), var(--encre)) 0 var(--repere) / 10px 1px,
+    linear-gradient(var(--encre), var(--encre)) var(--repere) 0 / 1px 10px,
+    linear-gradient(var(--encre), var(--encre)) 100% var(--repere) / 10px 1px,
+    linear-gradient(var(--encre), var(--encre)) calc(100% - var(--repere)) 0 / 1px 10px,
+    linear-gradient(var(--encre), var(--encre)) 0 calc(100% - var(--repere)) / 10px 1px,
+    linear-gradient(var(--encre), var(--encre)) var(--repere) 100% / 1px 10px,
+    linear-gradient(var(--encre), var(--encre)) 100% calc(100% - var(--repere)) / 10px 1px,
+    linear-gradient(var(--encre), var(--encre)) calc(100% - var(--repere)) 100% / 1px 10px;
+  background-repeat: no-repeat;
+}
+
+/* En-tête */
+.barre {
+  position: sticky; top: 0; z-index: 10; height: var(--hauteur-barre);
+  display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
+  background: var(--papier); border-bottom: 1px solid var(--encre);
+}
+.logo { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; text-decoration: none; font-size: 18px; font-weight: 700; }
+.logo-lt { background: var(--encre); color: var(--feuille); padding: 0 6px; }
+.lien-favoris { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; font-size: 15px; }
+.lien-favoris[aria-current="page"] { text-decoration: underline; text-underline-offset: 4px; }
+.lien-favoris[aria-current="page"] .icone { fill: var(--magenta); stroke: var(--magenta); }
+
+/* Accueil */
+.accueil, .erreur { padding: 24px 16px 48px; }
+.titre-page { font-size: 30px; line-height: 1.1; letter-spacing: -.02em; font-weight: 700; margin-bottom: 16px; }
+.filtres { margin: 0 -16px; padding: 0 16px; }
+.filtre { padding: 0 14px; border: 1px solid var(--encre); border-radius: 0; background: transparent; color: var(--encre); font-size: 15px; }
+.filtre[aria-pressed="true"] { background: var(--encre); color: var(--feuille); font-weight: 700; }
+.compte { margin: 14px 0 8px; font-size: 14px; color: var(--encre-2); }
+
+.sorties { border-top: 1px solid var(--trait); }
+.sortie { border-bottom: 1px solid var(--trait); }
+.sortie-lien {
+  display: grid; grid-template-columns: 112px 1fr; column-gap: 14px; align-items: start;
+  padding: 14px 0;
+}
+.sortie-image { grid-row: 1 / span 4; --repere: 10px; }
+.sortie-num { display: block; grid-column: 2; grid-row: 1; font-size: 14px; color: var(--cyan-texte); font-weight: 700; }
+.sortie-num::before { content: "N° "; }
+.sortie-titre { grid-column: 2; grid-row: 2; font-size: 17px; line-height: 1.3; font-weight: 700; }
+.sortie-meta { grid-column: 2; grid-row: 3; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: 8px; font-size: 14px; color: var(--encre-2); }
+.sortie-lien:hover .sortie-titre { text-decoration: underline; text-underline-offset: 3px; }
+
+.sortie--une .sortie-lien { grid-template-columns: 1fr; padding-top: 18px; }
+.sortie--une .sortie-image { grid-row: auto; margin-bottom: 8px; --repere: 14px; }
+.sortie--une .sortie-num, .sortie--une .sortie-titre, .sortie--une .sortie-meta { grid-column: 1; grid-row: auto; }
+.sortie--une .sortie-image { order: -2; }
+.sortie--une .sortie-num { order: -1; }
+.sortie--une .sortie-titre { font-size: 24px; letter-spacing: -.01em; }
+
+.badge { position: absolute; top: 24px; left: 24px; padding: 4px 10px; background: var(--encre); color: var(--feuille); font-size: 14px; font-weight: 700; }
+.sortie:not(.sortie--une) .badge { top: 20px; left: 16px; }
+.sortie-fav { top: 18px; right: 0; color: var(--magenta); }
+
+.cat { display: inline-block; padding: 2px 8px; font-size: 13px; font-weight: 700; }
+.cat[data-cat="affiche"] { background: var(--cyan); color: var(--encre); }
+.cat[data-cat="identite"] { background: var(--magenta); color: var(--feuille); }
+.cat[data-cat="sport"] { background: var(--jaune); color: var(--encre); }
+
+.vide { padding: 24px 0; }
+.vide-titre { font-weight: 700; font-size: 18px; }
+
+/* Fiche */
+.fiche { background: var(--papier); }
+.fiche-nav { padding: 4px 8px; }
+.retour { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding: 0 8px; text-decoration: none; font-size: 15px; }
+.fiche-visuel { margin: 4px 16px 0; background-color: var(--feuille); --repere: 18px; }
+.fiche-corps { padding: 24px 16px 0; display: grid; gap: 20px; }
+.fiche-num { font-size: 56px; line-height: 1; font-weight: 700; color: var(--cyan-texte); margin-bottom: -8px; }
+.fiche-titre { font-size: 28px; line-height: 1.1; letter-spacing: -.02em; }
+.fiche-infos { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--encre); }
+.fiche-infos > div { display: grid; grid-template-columns: 7.5em 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--trait); }
+.fiche-infos dt { font-size: 14px; color: var(--encre-2); }
+.fiche-infos dd { font-size: 15px; }
+.fiche-desc { font-size: 16px; line-height: 1.65; max-width: 60ch; }
+.galerie-tete { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+.galerie-titre { font-size: 18px; }
+.galerie-compte { font-size: 14px; color: var(--encre-2); }
+.galerie-liste { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; overflow: visible; }
+.galerie-btn { background: var(--feuille); padding: 6px; border: 1px solid var(--trait); }
+
+.actions { background: var(--feuille); border-top: 1px solid var(--encre); }
+.bouton { border-radius: 0; font-size: 16px; font-weight: 700; }
+.btn-favori { background: var(--encre); color: var(--feuille); }
+.btn-favori.est-favori { background: var(--feuille); border-color: var(--encre); color: var(--encre); }
+.btn-favori.est-favori .icone { color: var(--magenta); }
+.btn-partager, .bouton--secondaire { background: var(--feuille); border-color: var(--encre); color: var(--encre); }
+.bouton--principal { background: var(--encre); color: var(--feuille); }
+
+.toast { background: var(--encre); color: var(--feuille); font-weight: 700; }

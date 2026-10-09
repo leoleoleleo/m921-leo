@@ -1,0 +1,104 @@
+/* Proposition 01 · Nuit
+   Une galerie la nuit : l'interface s'efface, seuls les visuels ont de la couleur.
+   Le bleu LT Design est réservé au badge « Nouveau », au focus et à l'action principale. */
+
+@font-face { font-family: "Heros"; src: url("../commun/fonts/texgyreheros-regular.otf") format("opentype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Heros"; src: url("../commun/fonts/texgyreheros-bold.otf") format("opentype"); font-weight: 700; font-display: swap; }
+
+:root {
+  --fond: #0F1115;
+  --surface: #16191F;
+  --trait: #2C313B;     /* filets décoratifs */
+  --contour: #6B7480;   /* bord des boutons : 3,99:1 sur le fond (WCAG 1.4.11) */
+  --texte: #F2F4F7;
+  --texte-2: #A7AFBA;
+  --accent: #189CD8;
+  --sur-accent: #0F1115;
+  --erreur: #FF6B5E;
+  --police: "Heros", "Helvetica Neue", Arial, sans-serif;
+  --hauteur-barre: 64px;
+  --hauteur-actions: 76px;
+  color-scheme: dark;
+}
+
+body { background: var(--fond); color: var(--texte); font: 400 1rem/1.5 var(--police); }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.lien-evitement { background: var(--accent); color: var(--sur-accent); }
+
+/* En-tête */
+.barre {
+  position: sticky; top: 0; z-index: 10; height: var(--hauteur-barre);
+  display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
+  background: rgb(15 17 21 / .94);
+}
+.logo { display: inline-flex; align-items: baseline; gap: 6px; min-height: 44px; align-items: center; text-decoration: none; font-size: 19px; }
+.logo-lt { font-weight: 700; letter-spacing: -.02em; }
+.logo-design { color: var(--texte-2); }
+.lien-favoris {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 4px;
+  text-decoration: none; font-size: 15px; color: var(--texte-2);
+}
+.lien-favoris[aria-current="page"] { color: var(--texte); }
+.lien-favoris[aria-current="page"] .icone { fill: var(--accent); stroke: var(--accent); }
+
+/* Accueil */
+.accueil, .erreur { padding: 20px 16px 48px; }
+.titre-page { font-size: 34px; line-height: 1.05; letter-spacing: -.03em; font-weight: 700; margin-bottom: 20px; }
+.filtres { margin: 0 -16px; padding: 0 16px; }
+.filtre {
+  padding: 0 16px; border-radius: 22px; border: 1px solid var(--contour);
+  background: transparent; color: var(--texte-2); font-size: 15px;
+}
+.filtre[aria-pressed="true"] { background: var(--texte); border-color: var(--texte); color: var(--fond); font-weight: 700; }
+.compte { margin: 16px 0 12px; font-size: 14px; color: var(--texte-2); }
+
+.sorties { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 12px; }
+.sortie--une { grid-column: 1 / -1; margin: 0 -16px 8px; }
+.sortie-lien { display: grid; gap: 4px; }
+.sortie-image { background: var(--surface); }
+.sortie-titre { margin-top: 8px; font-size: 16px; line-height: 1.25; font-weight: 700; }
+.sortie-meta { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 14px; color: var(--texte-2); }
+.sortie--une .sortie-titre { font-size: 26px; letter-spacing: -.02em; padding: 4px 16px 0; }
+.sortie--une .sortie-meta { padding: 0 16px; font-size: 15px; }
+.sortie-lien:hover .sortie-titre { text-decoration: underline; text-underline-offset: 3px; }
+.badge {
+  position: absolute; top: 12px; left: 12px; padding: 6px 12px; border-radius: 16px;
+  background: var(--accent); color: var(--sur-accent); font-size: 14px; font-weight: 700;
+}
+.sortie--une .badge { top: 16px; left: 16px; }
+.sortie-fav { top: 10px; right: 10px; padding: 6px; border-radius: 50%; background: rgb(15 17 21 / .8); color: var(--accent); }
+
+.vide { padding: 24px 0; color: var(--texte-2); }
+.vide-titre { color: var(--texte); font-weight: 700; font-size: 18px; }
+
+/* Fiche */
+.fiche-nav { padding: 4px 8px 8px; }
+.retour { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding: 0 8px; text-decoration: none; color: var(--texte-2); font-size: 15px; }
+.fiche-visuel { background: var(--surface); }
+.fiche-corps { padding: 20px 16px 0; display: grid; gap: 20px; }
+.fiche-num { font-size: 14px; color: var(--texte-2); margin-bottom: -14px; }
+.fiche-titre { font-size: 32px; line-height: 1.05; letter-spacing: -.03em; font-weight: 700; }
+.fiche-infos { padding: 16px 0; border-block: 1px solid var(--trait); }
+.fiche-infos dt { font-size: 13px; color: var(--texte-2); }
+.fiche-infos dd { font-size: 15px; }
+.fiche-desc { font-size: 17px; line-height: 1.55; max-width: 60ch; }
+.galerie-tete { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+.galerie-titre { font-size: 18px; }
+.galerie-compte { font-size: 14px; color: var(--texte-2); }
+.galerie-liste { margin-right: -16px; padding-right: 16px; }
+.galerie-btn { border-radius: 4px; overflow: hidden; }
+
+.actions { background: var(--fond); border-top: 1px solid var(--trait); }
+.bouton { border-radius: 26px; font-size: 16px; font-weight: 700; }
+.btn-favori { background: var(--accent); color: var(--sur-accent); }
+.btn-favori.est-favori { background: transparent; border-color: var(--accent); color: var(--texte); }
+.btn-favori.est-favori .icone { color: var(--accent); }
+.btn-partager, .bouton--secondaire { background: transparent; border-color: var(--contour); color: var(--texte); }
+.bouton--principal { background: var(--accent); color: var(--sur-accent); }
+.erreur p { color: var(--texte-2); }
+
+.toast { background: var(--texte); color: var(--fond); border-radius: 24px; font-weight: 700; }
+
+@media (min-width: 481px) {
+  .sortie--une { margin-inline: 0; }
+}

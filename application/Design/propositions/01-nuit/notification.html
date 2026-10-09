@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notification simulée | LT-design app</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: grid; justify-items: center;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: #FFFFFF;
+    background: radial-gradient(120% 80% at 30% 10%, #3B4A63 0%, #1A2233 55%, #0C1019 100%);
+  }
+  main { width: 100%; max-width: 480px; padding: 72px 16px 32px; display: grid; gap: 8px; align-content: start; }
+  .heure { margin: 0; text-align: center; font-size: 76px; font-weight: 700; letter-spacing: -2px; line-height: 1; }
+  .date { margin: 0 0 120px; text-align: center; font-size: 18px; color: #E4E8EF; }
+  .notif {
+    display: grid; grid-template-columns: 40px 1fr 48px; gap: 12px; align-items: center;
+    padding: 14px; border-radius: 20px; text-decoration: none; color: #111418;
+    background: rgb(242 244 247 / .94);
+  }
+  .notif:focus-visible { outline: 3px solid #FFFFFF; outline-offset: 3px; }
+  .notif-icone { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: #0F1115; color: #FFFFFF; font-weight: 700; }
+  .notif-app { display: flex; justify-content: space-between; font-size: 13px; color: #48505C; }
+  .notif strong { display: block; font-size: 16px; margin-top: 2px; }
+  .notif-texte span:last-child { font-size: 15px; }
+  .notif img { width: 48px; height: 64px; object-fit: cover; border-radius: 6px; }
+  .aide { margin: 24px 0 0; text-align: center; font-size: 15px; color: #E4E8EF; }
+</style>
+</head>
+<body>
+<main>
+  <p class="heure" aria-hidden="true">18:42</p>
+  <p class="date">Écran verrouillé simulé, jeudi 8 octobre</p>
+  <a class="notif" href="index.html?reset#/sortie/fc-sion-2026">
+    <span class="notif-icone" aria-hidden="true">LT</span>
+    <span class="notif-texte">
+      <span class="notif-app"><span>LT-design app</span><span>maintenant</span></span>
+      <strong>Nouvelle sortie LT Design</strong>
+      <span>Affiche FC Sion 2026</span>
+    </span>
+    <img id="vignette" src="" alt="">
+  </a>
+  <p class="aide">Touche la notification pour ouvrir l'app.</p>
+</main>
+<script src="../commun/data.js"></script>
+<script>document.getElementById("vignette").src = visuel(SORTIES[0]);</script>
+</body>
+</html>

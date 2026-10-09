@@ -1,15 +1,15 @@
-# Pitch — mon app M291
+# Pitch · mon app M291
 
-**Nom de l’app : **  
+**Nom de l'app :**  
 LT-design app
 
 **En une phrase, elle sert à :**  
-suivre toute les infos de LT-design
+suivre toutes les infos et les dernières sorties de LT Design.
 
 **À qui (prénom + âge + situation) :**  
-benjamin 20ans fan de lt-design
+Benjamin, 20 ans, fan de LT Design (voir le [persona](persona.md)).
 
-**La tâche n°1 (celle du flow) :**  
+**La tâche n° 1 (celle du flow) :**  
 Notification reçue (hors de l'app). Benjamin voit « Nouvelle sortie LT Design » avec le titre du projet, par exemple « Affiche FC Sion 2026 ».
 
 Tap sur la notif. L'app s'ouvre directement sur la fiche de cette sortie, pas sur l'accueil. C'est ce qui rend le flow court.
@@ -24,9 +24,8 @@ Retour. Il arrive sur l'accueil « Dernières sorties ». La nouvelle est en tê
 
 Fin. Le badge disparaît, et la sortie est marquée comme vue.
 
-**Les données (inventées) ressemblent à :** fiches de … (ex. : spots, recettes, disques)
-derniere sortie de lt-design 
+**Les données (inventées) ressemblent à :**  
+des fiches de sorties de LT Design : titre, catégorie (affiche, identité, sport design), date, format, technique, description et une galerie de 5 images. Exemple : « Affiche FC Sion 2026 », sport design, 8 octobre 2026.
 
-**Pourquoi ce n’est pas trop grand pour 4 semaines de code :**  
-j'ai déjà la base graphique il manque just le code
-
+**Pourquoi ce n'est pas trop grand pour 4 semaines de code :**  
+j'ai déjà la base graphique, il manque juste le code. Le flow tient en 4 écrans (notification, fiche, plein écran, accueil), sans compte ni base de données.

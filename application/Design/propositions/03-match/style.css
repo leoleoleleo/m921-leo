@@ -1,0 +1,110 @@
+/* Proposition 03 · Match
+   Le langage du sport design : bleu nuit de stade, titres condensés en italique,
+   sorties listées comme un calendrier de matchs, visuels coupés en diagonale. */
+
+@font-face { font-family: "Heros"; src: url("../commun/fonts/texgyreheros-regular.otf") format("opentype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Heros"; src: url("../commun/fonts/texgyreheros-bold.otf") format("opentype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Heros Cn"; src: url("../commun/fonts/texgyreheroscn-bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Heros Cn"; src: url("../commun/fonts/texgyreheroscn-bolditalic.otf") format("opentype"); font-weight: 700; font-style: italic; font-display: swap; }
+
+:root {
+  --nuit: #071B2C;
+  --nuit-2: #0F2A42;
+  --ligne: #24445F;
+  --blanc: #F4F8FB;
+  --gris: #A9BCCB;
+  --bleu: #189CD8;
+  --sur-bleu: #071B2C;
+  --police: "Heros", "Helvetica Neue", Arial, sans-serif;
+  --titre: "Heros Cn", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --hauteur-barre: 60px;
+  --hauteur-actions: 76px;
+  --coupe: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+  color-scheme: dark;
+}
+
+body { background: var(--nuit); color: var(--blanc); font: 400 1rem/1.5 var(--police); }
+:focus-visible { outline: 3px solid var(--bleu); outline-offset: 3px; }
+.lien-evitement { background: var(--bleu); color: var(--sur-bleu); }
+.titre-page, .fiche-titre, .sortie-titre, .galerie-titre, .logo, .sortie-jour b, .fiche-infos dd {
+  font-family: var(--titre); font-weight: 700; font-style: italic;
+}
+
+/* En-tête : bande bleue */
+.barre {
+  position: sticky; top: 0; z-index: 10; height: var(--hauteur-barre);
+  display: flex; align-items: center; justify-content: space-between; padding: 0 16px;
+  background: var(--bleu); color: var(--sur-bleu);
+}
+.logo { display: inline-flex; gap: 6px; align-items: center; min-height: 44px; text-decoration: none; font-size: 24px; text-transform: uppercase; letter-spacing: .01em; }
+.lien-favoris { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; text-decoration: none; font-size: 15px; font-weight: 700; }
+.lien-favoris[aria-current="page"] .icone { fill: currentColor; }
+
+/* Accueil */
+.accueil, .erreur { padding: 24px 16px 48px; }
+.titre-page { font-size: 46px; line-height: .95; text-transform: uppercase; margin-bottom: 20px; }
+.filtres { margin: 0 -16px; padding: 0 16px; }
+.filtre {
+  padding: 0 16px; border: 2px solid var(--ligne); background: transparent; color: var(--blanc);
+  font-size: 15px; font-weight: 700; transform: skewX(-10deg);
+}
+.filtre[aria-pressed="true"] { background: var(--bleu); border-color: var(--bleu); color: var(--sur-bleu); }
+.compte { margin: 16px 0 8px; font-size: 14px; color: var(--gris); }
+
+.sorties { border-top: 2px solid var(--ligne); }
+.sortie { border-bottom: 1px solid var(--ligne); }
+.sortie-lien { display: grid; grid-template-columns: 56px 1fr 60px; column-gap: 14px; align-items: center; padding: 14px 0; }
+.sortie-jour { display: grid; grid-column: 1; grid-row: 1 / span 2; text-align: center; line-height: 1; color: var(--gris); font-size: 14px; }
+.sortie-jour b { font-size: 36px; color: var(--blanc); }
+.sortie-titre { grid-column: 2; grid-row: 1; font-size: 22px; line-height: 1.05; text-transform: uppercase; }
+.sortie-meta { grid-column: 2; grid-row: 2; margin-top: 4px; font-size: 14px; color: var(--gris); }
+.sortie-date { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.sortie-image { grid-column: 3; grid-row: 1 / span 2; }
+.sortie-lien:hover .sortie-titre { color: var(--bleu); }
+
+.sortie--une { border-bottom: 0; margin: 0 -16px 12px; }
+.sortie--une .sortie-lien { grid-template-columns: 1fr; padding: 0 0 8px; }
+.sortie--une .sortie-image { grid-column: 1; grid-row: 1; clip-path: var(--coupe); }
+.sortie--une .sortie-jour { display: none; }
+.sortie--une .sortie-titre { grid-column: 1; grid-row: 2; font-size: 36px; padding: 4px 16px 0; }
+.sortie--une .sortie-meta { grid-column: 1; grid-row: 3; padding: 0 16px; }
+.sortie--une .sortie-date { position: static; width: auto; height: auto; clip: auto; margin-left: 8px; }
+
+.badge {
+  position: absolute; top: 14px; left: 16px; padding: 4px 12px;
+  background: var(--bleu); color: var(--sur-bleu); font-weight: 700; font-size: 14px; transform: skewX(-10deg);
+}
+.sortie:not(.sortie--une) .badge { top: 6px; left: auto; right: 0; }
+.sortie-fav { bottom: 12px; right: 4px; color: var(--bleu); }
+.sortie--une .sortie-fav { top: 14px; right: 16px; bottom: auto; }
+
+.vide { padding: 24px 0; color: var(--gris); }
+.vide-titre { color: var(--blanc); font-weight: 700; font-size: 18px; }
+
+/* Fiche */
+.fiche-nav { padding: 4px 8px; }
+.retour { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding: 0 8px; text-decoration: none; font-size: 15px; color: var(--gris); }
+.fiche-visuel { clip-path: var(--coupe); }
+.fiche-corps { padding: 8px 16px 0; display: grid; gap: 20px; }
+.fiche-num { font-size: 14px; font-weight: 700; color: var(--bleu); margin-bottom: -14px; }
+.fiche-titre { font-size: 46px; line-height: .95; text-transform: uppercase; }
+.fiche-infos { padding: 14px 0; border-block: 2px solid var(--ligne); }
+.fiche-infos dt { font-size: 13px; color: var(--gris); }
+.fiche-infos dd { font-size: 20px; line-height: 1.1; }
+.fiche-infos .cat { font-style: italic; }
+.fiche-desc { font-size: 17px; line-height: 1.55; max-width: 60ch; }
+.galerie-tete { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+.galerie-titre { font-size: 26px; text-transform: uppercase; }
+.galerie-compte { font-size: 14px; color: var(--gris); }
+.galerie-liste { margin-right: -16px; padding-right: 16px; }
+
+.actions { background: var(--bleu); }
+.bouton { font-size: 16px; font-weight: 700; }
+.btn-favori { background: var(--nuit); color: var(--blanc); }
+.btn-favori.est-favori { background: var(--blanc); color: var(--nuit); }
+.btn-partager { background: transparent; border-color: var(--nuit); color: var(--nuit); }
+.bouton--principal { background: var(--bleu); color: var(--sur-bleu); }
+.bouton--secondaire { background: transparent; border-color: var(--ligne); color: var(--blanc); }
+.erreur p { color: var(--gris); }
+
+.toast { background: var(--blanc); color: var(--nuit); font-weight: 700; }
