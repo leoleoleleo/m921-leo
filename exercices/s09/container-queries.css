@@ -1,0 +1,35 @@
+/* S09-AV1 · Composants rétro-compatibles avec les container queries
+   La carte de sortie s'adapte à la place que lui laisse son parent,
+   et non plus à la largeur de l'écran.
+
+   Pourquoi le conteneur est l'<article class="carte"> :
+   une règle @container ne peut pas modifier l'élément qui sert de conteneur.
+   On déclare donc l'article comme conteneur, et c'est son contenu
+   (.carte-lien) qui passe de vertical à horizontal.
+
+   Rétro-compatible : un navigateur qui ne connaît pas @container ignore
+   ce fichier et garde la carte verticale de style.css. */
+
+.carte {
+  container-type: inline-size;
+  container-name: carte;
+}
+
+/* Dès que la carte dispose d'au moins 400 px : image à gauche, texte à droite */
+@container carte (min-width: 400px) {
+  .carte-lien {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-4);
+    padding: 6px;
+  }
+
+  .carte .carte-image {
+    aspect-ratio: 4 / 3;
+  }
+
+  .carte-texte {
+    padding: var(--space-3) var(--space-3) var(--space-3) 0;
+  }
+}

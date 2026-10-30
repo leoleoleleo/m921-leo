@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Container queries | LT-design app</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto:wght@400;500;700&family=Roboto+Mono&display=swap">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="container-queries.css">
+  <style>
+    /* Mise en page de la démonstration uniquement */
+    .demo { display: grid; gap: var(--space-5); }
+    .demo-zone { display: grid; gap: var(--space-3); align-content: start; }
+    .demo-zone--etroite { max-width: 300px; }
+    .demo-legende { color: var(--color-text-muted); font-family: var(--font-label); font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; }
+    @media (min-width: 768px) {
+      .demo { grid-template-columns: 300px minmax(0, 1fr); align-items: start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="entete">
+    <a class="logo" href="../../index.html" aria-label="LT Design, retour aux dernières sorties">LT Design</a>
+  </header>
+
+  <main class="contenu">
+    <div class="intro">
+      <h1 class="titre-page">Container queries</h1>
+      <p class="intro-texte">La même carte dans deux espaces : elle reste verticale dans la colonne étroite et passe à l'horizontale dès qu'elle dispose de 400 px.</p>
+    </div>
+
+    <div class="demo">
+      <section class="demo-zone demo-zone--etroite" aria-labelledby="zone-etroite">
+        <h2 id="zone-etroite" class="demo-legende">Colonne étroite, 300 px</h2>
+        <article class="carte">
+          <a class="carte-lien" href="https://leotache.ch/projet.html?p=riat">
+            <div class="carte-media">
+              <img class="carte-image" src="https://leotache.ch/assets/riat/poster.jpg" alt="Affiche de hockey sur glace : Damien Riat en maillot rouge, entouré de ses coéquipiers" width="1417" height="1811">
+            </div>
+            <div class="carte-texte">
+              <h3 class="carte-titre">Damien Riat</h3>
+              <p class="carte-meta"><span class="etiquette">Sport design</span> <time datetime="2026-09">sept. 2026</time></p>
+            </div>
+          </a>
+        </article>
+      </section>
+
+      <section class="demo-zone" aria-labelledby="zone-large">
+        <h2 id="zone-large" class="demo-legende">Zone large</h2>
+        <article class="carte">
+          <a class="carte-lien" href="https://leotache.ch/projet.html?p=riat">
+            <div class="carte-media">
+              <img class="carte-image" src="https://leotache.ch/assets/riat/poster.jpg" alt="Affiche de hockey sur glace : Damien Riat en maillot rouge, entouré de ses coéquipiers" width="1417" height="1811">
+            </div>
+            <div class="carte-texte">
+              <h3 class="carte-titre">Damien Riat</h3>
+              <p class="carte-meta"><span class="etiquette">Sport design</span> <time datetime="2026-09">sept. 2026</time></p>
+            </div>
+          </a>
+        </article>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
