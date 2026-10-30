@@ -24,6 +24,7 @@ Benjamin Favre, 20 ans, étudiant en communication visuelle en Suisse romande et
 
 ### Écran 2 · Fiche sortie
 - On y voit : le visuel principal en grand, le titre, la catégorie, la date, une courte description et la galerie d'images.
+- Catégories, les mêmes que sur le portfolio : Des vrais clients, Projets fictifs, Affiches, Sport design, Édition & print.
 - On peut y faire : faire défiler la galerie, ouvrir une image, ajouter aux favoris, partager, revenir à l'accueil.
 - Bouton principal : « Ajouter aux favoris » (cœur)
 
@@ -36,19 +37,28 @@ Benjamin Favre, 20 ans, étudiant en communication visuelle en Suisse romande et
 - On y voit : la liste des sorties de la plus récente à la plus ancienne (vignette, titre, catégorie, date), avec un badge « Nouveau » sur les sorties pas encore vues.
 - On peut y faire : ouvrir une sortie, filtrer par catégorie, accéder aux favoris.
 - Bouton principal : la carte de la sortie (ouvre la fiche)
+- Intégré en HTML et CSS : [index.html](index.html) (atelier e3-1). La recherche, les filtres et les favoris arrivent en semaine 12.
 
 ## Ambiance visuelle
 
-Sombre et sobre, comme une galerie : l'interface s'efface pour laisser toute la place aux visuels de LT Design. Typographie grotesque, grands titres, peu d'éléments décoratifs. Le bleu LT Design sert uniquement d'accent (badge « Nouveau », favoris, bouton principal).
+Sombre et sobre, comme une galerie : l'interface s'efface pour laisser toute la place aux visuels de LT Design. Grands titres, peu d'éléments décoratifs. Le bleu LT Design sert uniquement d'accent (badge « Nouveau », favoris, bouton principal).
+
+L'app reprend l'identité du portfolio [leotache.ch](https://leotache.ch) : mêmes couleurs, mêmes polices, mêmes catégories. Un fan passe de l'un à l'autre sans changer d'univers.
+
+## Typographie
+
+- Titres : Archivo Black, en capitales
+- Texte : Roboto
+- Étiquettes (catégorie, date, navigation) : Roboto Mono, en capitales espacées
 
 ## Palette
 
-- Fond : `#0F1115`
-- Surface (cartes) : `#16191F`
-- Texte : `#F2F4F7` (17,2:1 sur le fond)
-- Texte secondaire : `#A7AFBA` (8,5:1 sur le fond)
-- Accent : `#189CD8`, bleu LT Design (6,1:1 sur le fond). Texte sur fond bleu toujours en `#0F1115` : le blanc sur ce bleu ne passe pas l'AA (3,1:1).
-- Attention / erreur : `#FF6B5E` (6,8:1 sur le fond)
+Règle 60-30-10, avec les valeurs de leotache.ch :
+
+- Fond, 60 % : `#0d0d0f`
+- Surfaces et texte, 30 % : surface `#18181b`, texte `#f2f2f2` (17,3:1 sur le fond), texte secondaire `rgba(242, 242, 242, .7)` (8,7:1 sur le fond)
+- Accent, 10 % : `#189CD8`, bleu LT Design (6,3:1 sur le fond). Texte sur fond bleu toujours en `#0d0d0f` : le blanc sur ce bleu ne passe pas l'AA (3,1:1).
+- Attention / erreur : `#FF6B5E` (7:1 sur le fond)
 
 ## Interdits
 

@@ -149,8 +149,10 @@ Nuit est la seule qui respecte le brief, et c'est celle qui sert le mieux la tâ
 - [x] Contrastes et navigation au clavier vérifiés ([tests-utilisateurs.md](tests-utilisateurs.md))
 - [x] Test utilisateur avec un camarade (Alexis, 4/5), sortie du plein écran corrigée ([tests-utilisateurs.md](tests-utilisateurs.md))
 - [ ] Refaire la tâche T7 (filtres) avec un 2e camarade
-- [ ] Catégorie en étiquette
-- [ ] Fiche technique en lignes
-- [ ] Sortie à la une moins haute
-- [ ] Remplacer les visuels inventés par les vrais projets de LT Design (WebP, chargement différé)
+- [x] Écran d'accueil intégré en HTML et CSS ([index.html](../../index.html), atelier e3-1)
+- [x] Catégorie en étiquette
+- [x] Sortie à la une moins haute (4:3 sur mobile, horizontale sur bureau)
+- [x] Vrais projets de LT Design sur l'accueil, avec chargement différé
+- [ ] Exporter des visuels plus légers : les 7 images de l'accueil pèsent 2,1 Mo (viser des WebP de 800 px)
+- [ ] Fiche technique en lignes (écran Fiche sortie, pas encore intégré)
 - [ ] Test avec un lecteur d'écran (VoiceOver ou TalkBack)
