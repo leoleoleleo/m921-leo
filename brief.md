@@ -37,7 +37,7 @@ Benjamin Favre, 20 ans, étudiant en communication visuelle en Suisse romande et
 - On y voit : la liste des sorties de la plus récente à la plus ancienne (vignette, titre, catégorie, date), avec un badge « Nouveau » sur les sorties pas encore vues.
 - On peut y faire : ouvrir une sortie, filtrer par catégorie, accéder aux favoris.
 - Bouton principal : la carte de la sortie (ouvre la fiche)
-- Intégré en HTML et CSS : [index.html](index.html) (atelier e3-1). La recherche, les filtres et les favoris arrivent en semaine 12.
+- Intégré dans [index.html](index.html) : sortie à la une, filtres par catégorie, compteur de sorties et favoris (cœur sur chaque carte, gardés dans le navigateur, vue « Mes favoris »). La recherche arrive en semaine 12.
 
 ## Ambiance visuelle
 

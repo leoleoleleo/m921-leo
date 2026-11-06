@@ -72,6 +72,16 @@ p {
   margin: 0;
 }
 
+/* Un élément caché avec l'attribut hidden reste caché, même s'il a un display */
+[hidden] {
+  display: none !important;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -102,6 +112,11 @@ a {
 
 .lien-evitement:focus {
   top: var(--space-2);
+}
+
+/* Le titre reçoit le focus quand on passe d'une vue à l'autre : pas de contour sur un titre */
+[tabindex="-1"]:focus {
+  outline: none;
 }
 
 /* ---------- En-tête ---------- */
@@ -193,6 +208,7 @@ a {
 
 /* ---------- Carte ---------- */
 .carte {
+  position: relative;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-card);
   transition: border-color .2s ease;
@@ -323,6 +339,133 @@ a {
 
 .bouton:hover {
   background: var(--color-primary-hover);
+}
+
+.bouton--secondaire {
+  border: 1px solid var(--color-border-strong);
+  background: transparent;
+  color: var(--color-text);
+}
+
+.bouton--secondaire:hover {
+  background: var(--color-surface);
+}
+
+/* ---------- Filtres, compteur et favoris (maquette Nuit) ---------- */
+.filtres {
+  display: flex;
+  gap: var(--space-2);
+  margin: 0 calc(-1 * var(--space-3));
+  padding: 0 var(--space-3) var(--space-1);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filtres::-webkit-scrollbar {
+  display: none;
+}
+
+.filtre {
+  flex: none;
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.filtre:hover {
+  color: var(--color-text);
+}
+
+/* Filtre actif : plein, comme sur la maquette */
+.filtre[aria-pressed="true"] {
+  border-color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.compte {
+  margin: var(--space-3) 0;
+  color: var(--color-text-muted);
+  font-family: var(--font-label);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.icone-coeur {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.lien-favoris {
+  gap: var(--space-2);
+}
+
+.lien-favoris[aria-current="page"] {
+  color: var(--color-text);
+}
+
+.lien-favoris[aria-current="page"] .icone-coeur {
+  fill: var(--color-primary);
+  stroke: var(--color-primary);
+}
+
+/* Cœur posé sur la carte, en haut à droite */
+.carte-favori {
+  position: absolute;
+  top: calc(6px + var(--space-3));
+  right: calc(6px + var(--space-3));
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 50%;
+  background: rgba(13, 13, 15, .8);
+  color: var(--color-text);
+  cursor: pointer;
+}
+
+.carte-favori:hover {
+  border-color: var(--color-text);
+}
+
+.carte-favori[aria-pressed="true"] {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.carte-favori[aria-pressed="true"] .icone-coeur {
+  fill: currentColor;
+}
+
+.vide {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+  padding: var(--space-5) 0;
+  color: var(--color-text-muted);
+}
+
+.vide-titre {
+  color: var(--color-text);
+  font-family: var(--font-titre);
+  font-size: var(--text-lg);
+  text-transform: uppercase;
 }
 
 /* ---------- Pied de page ---------- */

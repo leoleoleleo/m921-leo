@@ -20,107 +20,130 @@
   <header class="entete">
     <a class="logo" href="index.html" aria-label="LT Design, dernières sorties">LT Design</a>
     <nav class="navigation" aria-label="Navigation principale">
-      <a class="navigation-lien" href="index.html" aria-current="page">Sorties</a>
-      <a class="navigation-lien" href="https://leotache.ch">Portfolio</a>
-      <!-- La recherche, les filtres par catégorie et les favoris viendront en semaine 12 -->
+      <!-- Affiche les sorties gardées avec le cœur (js/app.js) -->
+      <a class="navigation-lien lien-favoris" href="#favoris" hidden><svg class="icone-coeur" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.4-4.5-9.2-9C1.6 8 3.6 4.6 7 4.6c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.4 3.4 4.2 6.7-1.8 4.5-9.2 9-9.2 9z"/></svg><span>Favoris</span></a>
     </nav>
   </header>
 
   <main id="contenu" class="contenu">
     <div class="intro">
-      <h1 class="titre-page">Dernières sorties</h1>
-      <p class="intro-texte">Les nouveaux projets de LT Design, du plus récent au plus ancien.</p>
+      <h1 class="titre-page" id="titre-page" tabindex="-1">Dernières sorties</h1>
+      <p class="intro-texte" id="intro-texte">Les nouveaux projets de LT Design, du plus récent au plus ancien.</p>
     </div>
 
-    <!-- Les cartes mènent pour l'instant au projet sur leotache.ch.
-         Elles ouvriront l'écran « Fiche sortie » de l'app quand il sera intégré. -->
+    <!-- Filtres par catégorie : affichés et activés par js/app.js. La recherche arrive en semaine 12. -->
+    <div class="filtres" role="group" aria-label="Filtrer par catégorie" hidden>
+      <button type="button" class="filtre" data-filtre="tout" aria-pressed="true">Tout</button>
+      <button type="button" class="filtre" data-filtre="clients" aria-pressed="false">Clients</button>
+      <button type="button" class="filtre" data-filtre="fictifs" aria-pressed="false">Projets fictifs</button>
+      <button type="button" class="filtre" data-filtre="affiches" aria-pressed="false">Affiches</button>
+      <button type="button" class="filtre" data-filtre="sport" aria-pressed="false">Sport design</button>
+      <button type="button" class="filtre" data-filtre="edition" aria-pressed="false">Édition &amp; print</button>
+    </div>
+    <p class="compte" id="compte" aria-live="polite">7 sorties</p>
+
+    <!-- Les cartes reprennent les fiches de data.json (même id) et mènent au projet sur leotache.ch,
+         en attendant l'écran « Fiche sortie » de l'app. -->
     <section class="cartes-grille" aria-label="Sorties de LT Design">
 
-      <article class="carte carte--une">
-        <a class="carte-lien" href="https://leotache.ch/projet.html?p=deuxieme-peau">
+      <article class="carte carte--une" data-id="1" data-categorie="clients">
+        <a class="carte-lien" href="https://leotache.ch/projet.html?p=mediamatique-portes-ouvertes-2026">
           <div class="carte-media">
-            <img class="carte-image" src="https://ljwgtguirnatdbgxfyuh.supabase.co/storage/v1/object/public/project-media/projects/deuxieme-peau-12ql/perfect-binding-brochure-mockup-5-dcpdx.webp" alt="Brochure Deuxième Peau sur les armures médiévales, ouverte et fermée, en noir et blanc" width="2200" height="1716">
+            <img class="carte-image" src="https://ljwgtguirnatdbgxfyuh.supabase.co/storage/v1/object/public/project-media/projects/mediamatique-portes-ouvertes-2026-m5vh/plan-de-travail-1-2x-100-2f4rj.webp" alt="Logo des portes ouvertes 2026 : un torii et un soleil corail, avec « Média, Portes ouvertes » et 2026 à la verticale" width="1760" height="2200">
             <span class="badge">Nouveau</span>
           </div>
           <div class="carte-texte">
-            <h2 class="carte-titre">Deuxième Peau</h2>
+            <h2 class="carte-titre">Logo Portes ouvertes 2026</h2>
+            <p class="carte-meta"><span class="etiquette">Des vrais clients</span> <time datetime="2026-11">nov. 2026</time></p>
+          </div>
+        </a>
+        <button type="button" class="carte-favori" aria-pressed="false" aria-label="Favori : Logo Portes ouvertes 2026" hidden><svg class="icone-coeur" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.4-4.5-9.2-9C1.6 8 3.6 4.6 7 4.6c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.4 3.4 4.2 6.7-1.8 4.5-9.2 9-9.2 9z"/></svg></button>
+      </article>
+
+      <article class="carte" data-id="2" data-categorie="edition">
+        <a class="carte-lien" href="https://leotache.ch/projet.html?p=deuxieme-peau">
+          <div class="carte-media">
+            <img class="carte-image" src="https://ljwgtguirnatdbgxfyuh.supabase.co/storage/v1/object/public/project-media/projects/deuxieme-peau-12ql/perfect-binding-brochure-mockup-5-dcpdx.webp" alt="Brochure Deuxième Peau sur les armures médiévales, ouverte et fermée, en noir et blanc" width="2200" height="1716" loading="lazy">
+          </div>
+          <div class="carte-texte">
+            <h2 class="carte-titre">Brochure Deuxième Peau</h2>
             <p class="carte-meta"><span class="etiquette">Édition &amp; print</span> <time datetime="2026-10">oct. 2026</time></p>
           </div>
         </a>
+        <button type="button" class="carte-favori" aria-pressed="false" aria-label="Favori : Brochure Deuxième Peau" hidden><svg class="icone-coeur" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.4-4.5-9.2-9C1.6 8 3.6 4.6 7 4.6c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.4 3.4 4.2 6.7-1.8 4.5-9.2 9-9.2 9z"/></svg></button>
       </article>
 
-      <article class="carte">
+      <article class="carte" data-id="3" data-categorie="sport">
         <a class="carte-lien" href="https://leotache.ch/projet.html?p=riat">
           <div class="carte-media">
             <img class="carte-image" src="https://leotache.ch/assets/riat/poster.jpg" alt="Affiche de hockey sur glace : Damien Riat en maillot rouge avec ses coéquipiers, et ses statistiques de la saison" width="1417" height="1811" loading="lazy">
           </div>
           <div class="carte-texte">
-            <h2 class="carte-titre">Damien Riat</h2>
+            <h2 class="carte-titre">Affiche Damien Riat</h2>
             <p class="carte-meta"><span class="etiquette">Sport design</span> <time datetime="2026-09">sept. 2026</time></p>
           </div>
         </a>
+        <button type="button" class="carte-favori" aria-pressed="false" aria-label="Favori : Affiche Damien Riat" hidden><svg class="icone-coeur" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.4-4.5-9.2-9C1.6 8 3.6 4.6 7 4.6c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.4 3.4 4.2 6.7-1.8 4.5-9.2 9-9.2 9z"/></svg></button>
       </article>
 
-      <article class="carte">
-        <a class="carte-lien" href="https://leotache.ch/projet.html?p=rogers">
-          <div class="carte-media">
-            <img class="carte-image" src="https://leotache.ch/assets/rogers/poster.jpg" alt="Affiche de football : Morgan Rogers en maillot bleu" width="1134" height="1417" loading="lazy">
-          </div>
-          <div class="carte-texte">
-            <h2 class="carte-titre">Morgan Rogers</h2>
-            <p class="carte-meta"><span class="etiquette">Sport design</span> <time datetime="2026-09">sept. 2026</time></p>
-          </div>
-        </a>
-      </article>
-
-      <article class="carte">
+      <article class="carte" data-id="4" data-categorie="fictifs">
         <a class="carte-lien" href="https://leotache.ch/projet.html?p=meublon">
           <div class="carte-media">
             <img class="carte-image" src="https://leotache.ch/assets/meublon/hover.jpg" alt="Logo Meublon tracé au pinceau, avec le slogan « Le mobilier en carton qui a du caractère »" width="1080" height="1380" loading="lazy">
           </div>
           <div class="carte-texte">
-            <h2 class="carte-titre">Meublon</h2>
+            <h2 class="carte-titre">Logotype Meublon</h2>
             <p class="carte-meta"><span class="etiquette">Projets fictifs</span> <time datetime="2026-09">sept. 2026</time></p>
           </div>
         </a>
+        <button type="button" class="carte-favori" aria-pressed="false" aria-label="Favori : Logotype Meublon" hidden><svg class="icone-coeur" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.4-4.5-9.2-9C1.6 8 3.6 4.6 7 4.6c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.4 3.4 4.2 6.7-1.8 4.5-9.2 9-9.2 9z"/></svg></button>
       </article>
 
-      <article class="carte">
+      <article class="carte" data-id="5" data-categorie="affiches">
         <a class="carte-lien" href="https://leotache.ch/projet.html?p=cervin">
           <div class="carte-media">
-            <img class="carte-image" src="https://leotache.ch/assets/cervin/poster.jpg" alt="Affiche Flow State : le Cervin et un grand titre rouge" width="1500" height="2122" loading="lazy">
+            <img class="carte-image" src="https://leotache.ch/assets/cervin/poster.jpg" alt="Affiche Flow State : le Cervin en noir et blanc, lettrage rouge et tracé de la voie" width="1500" height="2122" loading="lazy">
           </div>
           <div class="carte-texte">
-            <h2 class="carte-titre">Flow State</h2>
+            <h2 class="carte-titre">Affiche Flow State</h2>
             <p class="carte-meta"><span class="etiquette">Affiches</span> <time datetime="2026-06">juin 2026</time></p>
           </div>
         </a>
+        <button type="button" class="carte-favori" aria-pressed="false" aria-label="Favori : Affiche Flow State" hidden><svg class="icone-coeur" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.4-4.5-9.2-9C1.6 8 3.6 4.6 7 4.6c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.4 3.4 4.2 6.7-1.8 4.5-9.2 9-9.2 9z"/></svg></button>
       </article>
 
-      <article class="carte">
+      <article class="carte" data-id="17" data-categorie="clients">
         <a class="carte-lien" href="https://leotache.ch/projet.html?p=chearn">
           <div class="carte-media">
             <img class="carte-image" src="https://leotache.ch/assets/chearn/cover.jpg" alt="Logo Chearn rouge sur fond clair, identité visuelle complète" width="1080" height="1380" loading="lazy">
           </div>
           <div class="carte-texte">
-            <h2 class="carte-titre">Chearn</h2>
+            <h2 class="carte-titre">Logo Chearn</h2>
             <p class="carte-meta"><span class="etiquette">Des vrais clients</span> <time datetime="2026-04">avril 2026</time></p>
           </div>
         </a>
+        <button type="button" class="carte-favori" aria-pressed="false" aria-label="Favori : Logo Chearn" hidden><svg class="icone-coeur" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.4-4.5-9.2-9C1.6 8 3.6 4.6 7 4.6c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.4 3.4 4.2 6.7-1.8 4.5-9.2 9-9.2 9z"/></svg></button>
       </article>
 
-      <article class="carte">
+      <article class="carte" data-id="21" data-categorie="clients">
         <a class="carte-lien" href="https://leotache.ch/projet.html?p=afmbb">
           <div class="carte-media">
-            <img class="carte-image" src="https://leotache.ch/assets/afmbb/logo.jpg" alt="Logo AFMBB blanc sur fond bordeaux, avec une bille de bois" width="900" height="1150" loading="lazy">
+            <img class="carte-image" src="https://leotache.ch/assets/afmbb/logo.jpg" alt="Logo AFMBB blanc sur fond bordeaux : un rondin dont la coupe devient une étagère" width="900" height="1150" loading="lazy">
           </div>
           <div class="carte-texte">
-            <h2 class="carte-titre">AFMBB</h2>
+            <h2 class="carte-titre">Logo AFMBB</h2>
             <p class="carte-meta"><span class="etiquette">Des vrais clients</span> <time datetime="2026-04">avril 2026</time></p>
           </div>
         </a>
+        <button type="button" class="carte-favori" aria-pressed="false" aria-label="Favori : Logo AFMBB" hidden><svg class="icone-coeur" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20.3s-7.4-4.5-9.2-9C1.6 8 3.6 4.6 7 4.6c2 0 3.6 1.1 5 3 1.4-1.9 3-3 5-3 3.4 0 5.4 3.4 4.2 6.7-1.8 4.5-9.2 9-9.2 9z"/></svg></button>
       </article>
     </section>
+
+    <div class="vide" id="vide" hidden>
+      <p class="vide-titre">Pas encore de favori ici</p>
+      <p>Touche le cœur d'une sortie pour la retrouver dans cette liste.</p>
+      <a class="bouton bouton--secondaire" href="#">Voir toutes les sorties</a>
+    </div>
 
     <aside class="a-propos" aria-labelledby="titre-a-propos">
       <h2 id="titre-a-propos" class="a-propos-titre">À propos de LT Design</h2>
