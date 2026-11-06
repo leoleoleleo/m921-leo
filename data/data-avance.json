@@ -1,0 +1,71 @@
+[
+  {
+    "id": 1,
+    "titre": "Logo Portes ouvertes 2026",
+    "projet": "Portes ouvertes 2026",
+    "categorie": "Des vrais clients",
+    "type": "Logo",
+    "annee": 2026,
+    "mois": 11,
+    "description": "Logo des portes ouvertes 2026 de la médiamatique du CPNV de Sainte-Croix, sur le thème imposé du Japon : un torii et un soleil, avec 2026 à la verticale.",
+    "estNouveau": true,
+    "estCommande": true,
+    "tags": ["logo", "japon", "école", "événement"],
+    "image": "https://ljwgtguirnatdbgxfyuh.supabase.co/storage/v1/object/public/project-media/projects/mediamatique-portes-ouvertes-2026-m5vh/plan-de-travail-1-2x-100-2f4rj.webp",
+    "alt": "Logo des portes ouvertes 2026 : un torii et un soleil corail, avec « Média, Portes ouvertes » et 2026 à la verticale",
+    "lien": "https://leotache.ch/projet.html?p=mediamatique-portes-ouvertes-2026",
+    "lieu": {
+      "nom": "CPNV, site de Sainte-Croix",
+      "role": "Le logo est visible sur place pendant les portes ouvertes de la médiamatique.",
+      "adresse": "Avenue de la Gare 14",
+      "commune": "Sainte-Croix",
+      "coordonnees": { "lat": 46.82135, "lng": 6.50014 }
+    },
+    "periode": {
+      "debut": "2026-11-28",
+      "fin": "2026-11-28"
+    },
+    "horaires": {
+      "lundi": [],
+      "mardi": [],
+      "mercredi": [],
+      "jeudi": [],
+      "vendredi": [],
+      "samedi": [{ "ouverture": "09:00", "fermeture": "16:00" }],
+      "dimanche": []
+    }
+  },
+  {
+    "id": 2,
+    "titre": "Brochure Deuxième Peau",
+    "projet": "Deuxième Peau",
+    "categorie": "Édition & print",
+    "type": "Brochure",
+    "annee": 2026,
+    "mois": 10,
+    "description": "Brochure de douze pages pour une exposition imaginaire au Musée d'art et d'histoire de Genève, sur les armures et les armes de la fin du Moyen Âge. Projet scolaire au CPNV.",
+    "estNouveau": false,
+    "estCommande": false,
+    "tags": ["brochure", "armures", "musée", "école"],
+    "image": "https://ljwgtguirnatdbgxfyuh.supabase.co/storage/v1/object/public/project-media/projects/deuxieme-peau-12ql/perfect-binding-brochure-mockup-5-dcpdx.webp",
+    "alt": "Brochure Deuxième Peau sur les armures médiévales, ouverte et fermée, en noir et blanc",
+    "lien": "https://leotache.ch/projet.html?p=deuxieme-peau",
+    "lieu": {
+      "nom": "Musée d'art et d'histoire de Genève (MAH)",
+      "role": "Le musée où se tiendrait l'exposition imaginaire présentée par la brochure.",
+      "adresse": "Rue Charles-Galland 2",
+      "commune": "Genève",
+      "coordonnees": { "lat": 46.19936, "lng": 6.15164 }
+    },
+    "periode": null,
+    "horaires": {
+      "lundi": [],
+      "mardi": [{ "ouverture": "11:00", "fermeture": "18:00" }],
+      "mercredi": [{ "ouverture": "11:00", "fermeture": "18:00" }],
+      "jeudi": [{ "ouverture": "12:00", "fermeture": "21:00" }],
+      "vendredi": [{ "ouverture": "11:00", "fermeture": "18:00" }],
+      "samedi": [{ "ouverture": "11:00", "fermeture": "18:00" }],
+      "dimanche": [{ "ouverture": "11:00", "fermeture": "18:00" }]
+    }
+  }
+]

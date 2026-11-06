@@ -5,6 +5,7 @@
 | [`../data.json`](../data.json) | La base de l'app : 31 sorties de LT Design, une fiche par livrable (atelier e3-2) |
 | [`schema.json`](schema.json) | Le schéma qui valide `data.json` (atelier S10-AV1) |
 | [`../.vscode/settings.json`](../.vscode/settings.json) | Relie le schéma à `data.json` dans VS Code |
+| [`data-avance.json`](data-avance.json) | Échantillon enrichi avec un lieu, des coordonnées GPS et des horaires (atelier S10-AV2) |
 
 ## Une fiche de `data.json`
 
@@ -63,3 +64,39 @@ d.length === new Set(d.map(f => f.id)).size // true : aucun id en double
 ## Images
 
 Les images viennent de [leotache.ch](https://leotache.ch), comme sur l'écran d'accueil. Les 2 fiches du hackathon INV (ids 8 et 9) pointent vers `images/inv-logo.jpg` et `images/inv-charte.jpg` : ces fichiers sont à ajouter dans le dossier `images/` quand le projet sera prêt à être montré.
+
+## Données avancées : lieu, coordonnées et horaires
+
+[`data-avance.json`](data-avance.json) reprend deux fiches de `data.json` (mêmes `id`) et leur ajoute trois sous-objets. Ils préparent une future carte « Où voir LT Design en vrai ».
+
+```json
+"lieu": {
+  "nom": "CPNV, site de Sainte-Croix",
+  "role": "Le logo est visible sur place pendant les portes ouvertes de la médiamatique.",
+  "adresse": "Avenue de la Gare 14",
+  "commune": "Sainte-Croix",
+  "coordonnees": { "lat": 46.82135, "lng": 6.50014 }
+},
+"periode": { "debut": "2026-11-28", "fin": "2026-11-28" },
+"horaires": {
+  "lundi": [],
+  "samedi": [{ "ouverture": "09:00", "fermeture": "16:00" }]
+}
+```
+
+| Sous-objet | Contenu | Règles |
+|---|---|---|
+| `lieu.coordonnees` | `lat` et `lng`, des nombres en degrés décimaux (WGS 84) | 5 décimales, soit environ 1 m de précision |
+| `periode` | `debut` et `fin` au format `AAAA-MM-JJ` | `null` pour un lieu ouvert toute l'année |
+| `horaires` | les 7 jours, chacun avec une liste de plages `{ "ouverture", "fermeture" }` au format `HH:MM` | liste vide = fermé ; plusieurs plages possibles le même jour (par exemple une pause de midi) |
+
+| Fiche | Lieu | Horaires |
+|---|---|---|
+| 1 · Logo Portes ouvertes 2026 | CPNV, Sainte-Croix (46.82135, 6.50014) | samedi 28 novembre 2026, de 9 h à 16 h |
+| 2 · Brochure Deuxième Peau | MAH, Genève (46.19936, 6.15164) | du mardi au dimanche de 11 h à 18 h, le jeudi de 12 h à 21 h, fermé le lundi |
+
+**D'où viennent ces données**
+
+- Coordonnées : recherche d'adresse du géoportail fédéral (map.geo.admin.ch).
+- Portes ouvertes : date sur [cpnv.ch](https://www.cpnv.ch/po2026/), heures données par Léo (à confirmer quand le programme sera publié).
+- MAH : horaires publiés sur [mahmah.ch](https://www.mahmah.ch/preparez-votre-visite/horaires-acces).
