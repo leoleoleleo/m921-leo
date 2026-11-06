@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/leoleoleleo/m921-leo/blob/main/data/schema.json",
+  "title": "Sorties de LT Design",
+  "description": "Valide data.json : la liste des sorties (un livrable par fiche) affichées par LT-design app.",
+  "type": "array",
+  "minItems": 30,
+  "items": { "$ref": "#/definitions/sortie" },
+  "definitions": {
+    "sortie": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "titre", "projet", "categorie", "type", "annee", "mois",
+        "description", "estNouveau", "estCommande", "tags", "image", "alt", "lien"
+      ],
+      "properties": {
+        "id": {
+          "description": "Identifiant unique, entier à partir de 1.",
+          "type": "integer",
+          "minimum": 1
+        },
+        "titre": {
+          "description": "Nom du livrable affiché sur la carte.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 60
+        },
+        "projet": {
+          "description": "Projet auquel appartient le livrable (plusieurs fiches peuvent partager un projet).",
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 60
+        },
+        "categorie": {
+          "description": "Une des catégories de leotache.ch.",
+          "enum": ["Des vrais clients", "Projets fictifs", "Affiches", "Sport design", "Édition & print"]
+        },
+        "type": {
+          "description": "Nature du livrable : Logo, Affiche, Charte graphique, Vidéo…",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 30
+        },
+        "annee": {
+          "description": "Année de sortie.",
+          "type": "integer",
+          "minimum": 2020,
+          "maximum": 2100
+        },
+        "mois": {
+          "description": "Mois de sortie, de 1 (janvier) à 12 (décembre).",
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12
+        },
+        "description": {
+          "description": "Une ou deux phrases qui présentent le livrable.",
+          "type": "string",
+          "minLength": 20,
+          "maxLength": 300
+        },
+        "estNouveau": {
+          "description": "Vrai pour la dernière sortie : la carte affiche le badge « Nouveau ».",
+          "type": "boolean"
+        },
+        "estCommande": {
+          "description": "Vrai pour un mandat réel (client, école ou association), faux pour un projet personnel ou un exercice.",
+          "type": "boolean"
+        },
+        "tags": {
+          "description": "Mots-clés en minuscules pour la recherche et les filtres.",
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 2,
+            "pattern": "^[a-z0-9à-ÿœ' -]+$"
+          }
+        },
+        "image": {
+          "description": "Adresse de l'image : https:// pour une image en ligne, images/ pour un fichier du dépôt.",
+          "type": "string",
+          "pattern": "^(https://|images/).+\\.(jpg|jpeg|png|webp|svg)$"
+        },
+        "alt": {
+          "description": "Texte alternatif qui décrit l'image (WCAG 1.1.1).",
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 200
+        },
+        "lien": {
+          "description": "Page du projet sur leotache.ch, ou null si le projet n'est pas encore publié.",
+          "type": ["string", "null"],
+          "pattern": "^https://"
+        }
+      }
+    }
+  }
+}
